@@ -48,5 +48,7 @@ namespace WebApplicationUsing_LINQ.GridView
                                    select num;
             GridView1.DataBind();
         }
+
+      
     }
 }
