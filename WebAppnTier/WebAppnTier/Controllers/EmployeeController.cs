@@ -18,6 +18,24 @@ namespace WebAppnTier.Controllers
             return View(employeesList);
         }
 
+        //Get
+        public ActionResult EmployeeByDepartment()     //Displays all the employee data by department
+        {
+            EmployeeBusinessLayer employee = new EmployeeBusinessLayer();
+
+            //This is L-query
+            var employeesList = employee.Employees.ToList().GroupBy(x => x.Department_ID)
+                                .Select(y => new DepartmentTotal
+                                {
+                                    Department= y.Key,
+                                    Total=y.Count()
+                                }).ToList().OrderByDescending(y=>y.Total);
+                                
+
+            return View(employeesList);
+        }
+
+
         [HttpGet]
         [ActionName("Create")]   //goto this "Create"action for this method/action
         public ActionResult Create_Get() {
