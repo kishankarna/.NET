@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="CsharpWebApp.NavNmaster.master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            margin-left: 0px;
+        }
+        .auto-style4 {
+            width: 387px;
+        }
+        .auto-style5 {
+            width: 644px;
+            height: 23px;
+        }
+        .auto-style6 {
+            height: 96px;
+        }
+        
+
+
+
+        .auto-style8 {
+            height: 225px;
+        }
+        .auto-style9 {
+            width: 644px;
+            height: 225px;
+        }
+        .auto-style10 {
+            height: 34px;
+        }
+        .auto-style11 {
+            height: 23px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <p>
+                
+     
+                <asp:HyperLink ID="home" runat="server" BorderStyle="Groove" NavigateUrl="~/NavNmaster/home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="curr" runat="server" BorderStyle="Groove">Curriculumn</asp:HyperLink>
+                <asp:HyperLink ID="contact" runat="server" BorderStyle="Groove" NavigateUrl="~/NavNmaster/contact.aspx">Contact</asp:HyperLink>
+                <asp:HyperLink ID="login" runat="server" BorderStyle="Groove" NavigateUrl="~/NavNmaster/login.aspx">Login</asp:HyperLink>
+                
+     
+          </p>
+            <center><h1>New Horizon College, Nepal</h1></center>
+               <table class="auto-style1">
+                   <tr>
+                       <td class="auto-style11">
+                           <center><b>School Project</b></center></td>
+                       <td class="auto-style5"></td>
+                       <td class="auto-style11">
+                           <center><b>School Future</b></center></td>
+                   </tr>
+                   <tr>
+                       <td class="auto-style8">
+                           <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/school.jpg" height="250" Width ="300"/>
+                       </td>
+                       <td class="auto-style9">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                    <br />
+               
+                </p>
+                <p class="auto-style4">
+                </p>
+               
+                <p>
+                </p>
+                <p class="auto-style6">
+                </p>
+            </asp:ContentPlaceHolder>
+                       </td>
+                       <td class="auto-style8">
+                           <asp:Image ID="Image2" runat="server" CssClass="auto-style2" ImageUrl="~/Images/school2.jpg" height="250" Width ="300" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td colspan="3" class="auto-style10">
+                           <br />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td colspan="3"><center>Name: Karna Thapa<br />Address: Euless, TX<br />E-mail: kisanthapamagar@gmail.com</center>&nbsp;</td>
+                   </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,95 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserTemplate.master.cs" Inherits="CsharpWebApp.MasterPages.UserTemplate" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 71%;
+        }
+        .auto-style4 {
+            width: 928px;
+            height: 35px;
+        }
+        .auto-style5 {
+            width: 213px;
+            height: 1px;
+        }
+        .auto-style6 {
+            width: 928px;
+            height: 1px;
+        }
+        .auto-style7 {
+            height: 132px;
+            width: 213px;
+        }
+        .auto-style8 {
+            width: 928px;
+            height: 132px;
+        }
+        .auto-style9 {
+            width: 213px;
+            height: 35px;
+        }
+        .auto-style10 {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        <h1>&nbsp;</h1></div>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style7">
+                    <asp:Image ID="Image1" runat="server" Height="145px" ImageUrl="~/Images/1.jpg" Width="211px" />
+                </td>
+                <td class="auto-style8"><h2>THAPA INTERPRISE</h2></td>
+            </tr>
+            <tr>
+                <td class="auto-style5">
+                    <table class="auto-style10">
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MasterPages/home.aspx">Home</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/MasterPages/login.aspx">Login</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/MasterPages/contactUs.aspx">Contact</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="auto-style6">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                    &nbsp;</p>
+                <h3>&nbsp;</h3>
+                <p>
+                    &nbsp;</p>
+                <p>
+                </p>
+                <p>
+                </p>
+            </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style9"></td>
+                <td class="auto-style4">Copy Rights 2018 Reserved</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

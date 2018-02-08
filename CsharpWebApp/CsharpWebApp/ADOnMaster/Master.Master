@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="CsharpWebApp.ADOnMaster.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 911px;
+        }
+        .auto-style3 {
+            width: 75px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style2"><center><h2>School Management System</h2></center></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">
+                    <asp:HyperLink ID="linkHome" runat="server" NavigateUrl="~/ADOnMaster/home.aspx">Home</asp:HyperLink>
+                    <br />
+                    <asp:HyperLink ID="linkLog" runat="server" NavigateUrl="~/ADOnMaster/log.aspx">login</asp:HyperLink>
+                    <br />
+                    <asp:HyperLink ID="linkAbt" runat="server" NavigateUrl="~/ADOnMaster/about.aspx">About us</asp:HyperLink>
+                    <br />
+                    <asp:HyperLink ID="linkCon" runat="server" NavigateUrl="~/ADOnMaster/contact.aspx">Contact</asp:HyperLink>
+                </td>
+                <td class="auto-style2">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    <br />
+                </p>
+            </asp:ContentPlaceHolder>
+                </td>
+                <td><span style="color: rgb(68, 68, 68); font-family: Lato, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Used in more than 3,500 schools, RenWeb provides 300+ core features and powerful integrated solutions that automate your school administration, classroom management, communication with the home. This web-based solution also offers a turnkey data conversion and setup process,&nbsp; comprehensive training, and live Customer Support</span></td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style2"><center>Contact: Karna Thapa<br />
+                    Address: Euless, Texas<br />
+                    Phone: 456-543-8941</center></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

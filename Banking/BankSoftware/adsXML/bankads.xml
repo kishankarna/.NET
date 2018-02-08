@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Advertisements>
+
+  <Ad>
+    <ImageUrl>~/images/promo.png</ImageUrl>
+    <NavigateUrl>http://bofa.com</NavigateUrl>
+    <AlternateText>Please visit http://www.bofa.com</AlternateText>
+    <Impressions>40</Impressions>
+    <Keyword>google</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/appstorebutton.png</ImageUrl>
+    <NavigateUrl>http://apple.com/ios/app-store/.com</NavigateUrl>
+    <AlternateText>Please visit http://www.apple.com</AlternateText>
+    <Impressions>20</Impressions>
+    <Keyword>pragim</Keyword>
+  </Ad>
+</Advertisements>
