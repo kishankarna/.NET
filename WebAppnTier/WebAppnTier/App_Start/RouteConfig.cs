@@ -16,6 +16,7 @@ namespace WebAppnTier
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+                //now it is going to route to Employee controller by default
                 defaults: new { controller = "Employee", action = "Index", id = UrlParameter.Optional }
             );
         }
