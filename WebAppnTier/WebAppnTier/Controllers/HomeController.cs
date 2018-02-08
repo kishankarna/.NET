@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//This is main controller for This application  
+//This is main controller
 namespace WebAppnTier.Controllers
 {
     public class HomeController : Controller
