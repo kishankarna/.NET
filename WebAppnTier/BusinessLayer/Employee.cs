@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace BusinessLayer
 {
     public class Employee
-    {
+    {   //This are the properties of Employee
         
         public int ID { get; set; }
         [Required ]
