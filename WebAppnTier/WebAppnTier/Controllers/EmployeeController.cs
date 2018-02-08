@@ -9,7 +9,7 @@ namespace WebAppnTier.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: Employee
+        // GET
         public ActionResult Index()     //Displays all the employee data
         {
             EmployeeBusinessLayer employee = new EmployeeBusinessLayer();
