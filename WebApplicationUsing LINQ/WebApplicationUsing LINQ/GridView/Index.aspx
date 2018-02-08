@@ -15,7 +15,9 @@
             &nbsp;</p>
         <p>
             &nbsp;</p>
-        <asp:Button ID="btnDisplay" runat="server" OnClick="btnDisplay_Click" Text="Display" />
+        <asp:Button ID="btnDisplay" runat="server" OnClick="btnDisplay_Click" Text="Display Name" />
+        <asp:Button ID="btnEven" runat="server" OnClick="btnEven_Click" Text="Display Even Numbers" />
+        <asp:Button ID="btnOdd" runat="server" OnClick="btnOdd_Click" Text="Display Odd Numbers" />
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
     </form>
