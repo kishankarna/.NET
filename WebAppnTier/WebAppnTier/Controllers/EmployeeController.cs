@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLayer;
+// Using MVC in 3 tier Acrhitecture
 namespace WebAppnTier.Controllers
 {
     public class EmployeeController : Controller
