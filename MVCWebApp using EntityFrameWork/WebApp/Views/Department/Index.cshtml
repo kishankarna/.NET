@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApp.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Department Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var department in Model) {
+    <tr>
+
+        <td>
+            @Html.ActionLink(department.name,"Index", "Employee", new { id=department.id },null) 
+        </td>
+    </tr>
+}
+
+</table>
