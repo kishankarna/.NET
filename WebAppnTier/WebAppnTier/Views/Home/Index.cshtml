@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Signup Form</h2>
+
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+<table>
+
+    <tr>
+        <td>@Html.Label("User Name")</td>
+        <td>@Html.TextBox("UserName", null, new { @class = "beigeTextbox" })</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Password")</td>
+        <td>@Html.Password("Password", null, new { @class = "beigeTextbox" })</td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.ListBox("Country", new List<SelectListItem> {
+            new SelectListItem{Text="USA",Value="1" },
+            new SelectListItem{Text="Nepal",Value="2" },
+            new SelectListItem{Text="Canada",Value="3" }
+            }, " Country")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DropDownList("Departments", new List<SelectListItem> {
+       new SelectListItem{Text ="IT",Value="1" },
+       new SelectListItem{Text="Account", Value="2"},
+       new SelectListItem{ Text="Loan",Value="3"}
+        }, "Department")
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>@Html.CheckBox("chk1", "Accept") Accept the Terms and Conditions</td>
+
+
+    </tr>
+
+
+    <tr>
+        @using (Html.BeginForm())
+        {
+            <td>@Html.RadioButton("Gender", "Male") Male
+
+            @Html.RadioButton("Gender", "Female") Female </td>
+
+        }
+
+    </tr>
+
+
+
+    <tr>
+
+        <td><input type="submit" value="Submit" class="btn btn-default" /></td>
+        <td><input type="submit" value="Cancel" class="btn btn-default" onclick="return confirm('Are you sure??')" /></td>
+    </tr>
+
+
+
+</table>

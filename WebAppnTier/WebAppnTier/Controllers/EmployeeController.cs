@@ -18,7 +18,7 @@ namespace WebAppnTier.Controllers
             return View(employeesList);
         }
 
-        //Get
+        //Get Employee/EmployeeByDepartment
         public ActionResult EmployeeByDepartment()     //Displays all the employee data by department
         {
             EmployeeBusinessLayer employee = new EmployeeBusinessLayer();
