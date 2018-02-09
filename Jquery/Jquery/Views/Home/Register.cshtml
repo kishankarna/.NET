@@ -1,0 +1,61 @@
+﻿<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+
+
+</head>
+<h2>Information Login Registration</h2>
+<script>
+    $(document).ready(function () {
+
+        $("#btnCan").click(function () {
+            alert("Are you sure about Cancel!!");
+        })
+    });
+
+
+
+    $(document).ready(function () {
+        $("#btnSub").click(function () {
+
+            alert("Ok");
+        })
+    });
+</script>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>@Html.TextBox("name")</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>
+                @Html.TextBox("add")
+        </td>
+
+    </tr>
+    <tr>
+        <td>Phone:</td>
+        <td>
+            @Html.TextBox("phn")
+    </td>
+
+</tr>
+<tr>
+    <td>
+        <input type="button" id="btnSub" value="Submit" />
+        <input type="button" id="btnCan" value="Cancel" />
+    </td>
+    <td>@Html.Label("lblMsg")</td>
+</tr>
+</table>
+}
+<br />
+@Html.ActionLink("Go Back","Index")
+<br /><br /><br /><br /><br /><br />

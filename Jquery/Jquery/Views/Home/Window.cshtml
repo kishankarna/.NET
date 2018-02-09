@@ -1,0 +1,35 @@
+﻿<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@{
+    ViewBag.Title = "Window";
+}
+
+
+<h2>Window Load Event</h2>
+<script>
+
+    $(document).ready(function () {
+
+        alert("This is Document ready event!!");
+    });
+
+</script>
+
+<script>
+
+    $(window).on('load', function () {
+
+        alert('This is window load function event!!');
+
+    });
+
+</script>
+
+
+<img src="~/Models/images.jpg" /><br />
+@Html.ActionLink("Go Back", "Index")<br />
+
+The windows load event is gonna wait for all the DOMS, pictures, css  and Frame to be loaded
+But now it is changes.
+
+You can get the height and widwth of picture using document ready function.
+<br /><br /><br /><br /><br /><br />
