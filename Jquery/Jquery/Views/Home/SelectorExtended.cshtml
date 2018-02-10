@@ -3,7 +3,13 @@
 @{
     ViewBag.Title = "SelectorExtended";
 }
-<script> //selecting radio button
+
+
+
+
+<h2>Selector Extended of Jquery</h2>
+<script>
+    //selecting radio button
     $(document).ready(function () {
         $('#btnSub1').click(function () {
             var v1 = $('input[type="radio"]:checked');
@@ -19,7 +25,16 @@
 
     });
 </script>
-<script>  //selecting checkbox
+Gender:
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female
+<br />
+<input type="submit" id="btnSub1" value="Submit" />
+<div id="divMsg1"> </div>
+
+<br />
+<script>
+    //selecting checkbox
     $(document).ready(function () {
         $('#btnSub2').click(function () {
             var res = $('input[type=checkbox]:checked');
@@ -40,23 +55,6 @@
     });
 
 </script>
-<script type="text/javascript">  //selecting disabled input items
-    $(document).ready(function () {
-        $('input[type="text"]:disabled').css('border', '2px solid red');
-        $('input:disabled').css('background-color', 'yellow');
-
-    });
-</script>
-
-<h2>Selector Extended of Jquery</h2>
-Gender:
-<input type="radio" name="gender" value="Male">Male
-<input type="radio" name="gender" value="Female">Female
-<br />
-<input type="submit" id="btnSub1" value="Submit" />
-<div id="divMsg1"> </div>
-
-<br />
 Courses:
 <input type="checkbox" name="course" value="JAVA" />Java
 <input type="checkbox" name="course" value="c#" />C#
@@ -66,6 +64,14 @@ Courses:
 <input type="submit" id="btnSub2" value="Submit" />
 <div id="divMsg2"> </div><br /><br />
 
+<script type="text/javascript">
+    //selecting disabled input items
+    $(document).ready(function () {
+        $('input[type="text"]:disabled').css('border', '2px solid red');
+        $('input:disabled').css('background-color', 'yellow');
+
+    });
+</script>
 Selection of disabled item:
 <table>
     <tr>
@@ -73,31 +79,31 @@ Selection of disabled item:
         <td><input type="text" disabled="disabled" /></td>
     </tr>
     <tr>
-    <td>Last Name </td>
-    <td><input type="text" disabled="disabled" /></td>
+        <td>Last Name </td>
+        <td><input type="text" disabled="disabled" /></td>
     </tr>
     <tr>
-    <td>Email </td>
-    <td><input type="text" /></td>
+        <td>Email </td>
+        <td><input type="text" /></td>
     </tr>
 
     <tr>
-    <td>Gender </td>
-    <td>
-    <select id="selectGender" disabled="disabled">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-    </select>
-    </td>
+        <td>Gender </td>
+        <td>
+            <select id="selectGender" disabled="disabled">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </td>
     </tr>
     <tr>
-    <td>Comments</td>
-    <td><textarea></textarea></td>
+        <td>Comments</td>
+        <td><textarea></textarea></td>
     </tr>
     <tr>
-    <td colspan="2">
-    <input type="submit" value="Submit" disabled="disabled"/>
-    
+        <td colspan="2">
+            <input type="submit" value="Submit" disabled="disabled" />
+
     </tr>
 </table>
 @Html.ActionLink("Go Back", "Index")

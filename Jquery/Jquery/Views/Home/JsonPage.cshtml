@@ -2,8 +2,11 @@
 @{
     ViewBag.Title = "JsonPage";
 }
-
-@*$(document).ready( function() {  // or shorthand of $( function () {*@
+<h2>Json Samples, Remeber it is case Sensitive</h2>
+<p>JSON is a JavaScript Object Notation.</p>
+<p>
+    Here we are creating JSON object to store data, It is a replacement to the XML data storing technique.
+</p>
 <script>
     // Json Script involved
     $(document).ready(function () {
@@ -31,6 +34,9 @@
 
 
 </script>
+<button id="btn1">Display Json Data</button>
+<div id="div1"></div>
+<br />
 <script>
     //JSON Array
     $(document).ready(function () {
@@ -44,9 +50,9 @@
         //or for all data retrival
 
         $('#btn2').click(function () {
-            
+
             var JsonString = JSON.stringify(Employee);   //Converting JSON Employee Object to string
-            $('#div2').html("JSON String:" + "<br/>"+JsonString +"<br/>");
+            $('#div2').html("JSON String:" + "<br/>" + JsonString + "<br/>");
 
             //Now from String to Json array or Object
             var JsonObj = JSON.parse(JsonString);  //converting JSON string to Object
@@ -54,17 +60,22 @@
             var newJson = "";
             $.each(JsonObj, function (i, item) {  //looping through 'res' string where 'i' is index and 'item' is value
                 newJson += "Name = " + item.Name + "<br/>";
-                newJson+= "Address = " + item.Address + "<br/>";
+                newJson += "Address = " + item.Address + "<br/>";
                 newJson += "Age = " + item.Age + "<br/><br/>";
 
             });
 
-            $('#div2').append("JSON Object: "+"<br/>" + newJson);
+            $('#div2').append("JSON Object: " + "<br/>" + newJson);
         });
 
     });
 
 </script>
+<p><strong>Json Array</strong></p>
+<button id="btn2">Display</button>
+<div id="div2"></div>
+<br />
+
 <script>
     //JSON Nested Object  //another technique to store multiple data in JSON
     $(document).ready(function () {
@@ -110,22 +121,119 @@
 
 </script>
 
-<h2>Json Samples, Remeber it is case Sensitive</h2>
-
-<p>JSON is a JavaScript Object Notation.</p>
-<p>
-    Here we are creating JSON object to store data, It is a replacement to the XML data storing technique.
-</p>
-
-<button id="btn1">Display Json Data</button>
-<div id="div1"></div>
-<br />
-<p><strong>Json Array</strong></p>
-<button id="btn2">Display</button>
-<div id="div2"></div>
-<br />
 <p><strong>Json Nested Object</strong></p>
 <button id="btn3">Display</button>
 <div id="div3"></div>
+<br />
+@*$(document).ready( function() {  // or shorthand of $( function () {*@
+<script>
+    //this is for attr
+    $(function () {
+        $('#btnattr').click(function () {   //there function is a callback function where, function(i) is going to contain index
+            // function(i,item) is for index and value
+            // alert($('div').attr('title'));  //gets only first one in collections
+            $('div').each(function () {         //get all the div titles
 
+                alert($(this).attr('title'));   //attr(value1)=> getter only where as attr(value1,value2)=> getter and setter
+            });
+        });
+
+    });
+
+</script>
+<p><strong>Json Attr || DOM Manipulation</strong></p>
+<button id="btnattr">Submit</button>
+<div id="dvattr1" title="tl1">This is First Div for attr</div>
+<div id="dvattr2" title="tl2">This is second Div for attr</div>
+<br />
+
+<style>
+    /*This is css style sheet for below three div elements*/
+    .containerDiv {
+        background-color: aquamarine;
+        color: brown;
+        font-weight: bold;
+    }
+
+    .container2Div {
+        background-color: bisque;
+        color: brown;
+        font-weight: bold;
+    }
+</style>
+<script>
+    //wrapping three div elements
+    $(function () {
+        $('#btnWrap').click(function () {
+            $('#divWrap1, #divWrap2, #divWrap3').wrap('<div class="containerDiv"></div>');  //wrap goes throught each div element
+            //wrapall does for whole thing at once
+
+        });
+
+        $('#btnWrapInner').click(function () {
+            $('#divWrap1, #divWrap2, #divWrap3').wrapInner('<div class="container2Div"></div>');
+
+        });
+
+    });
+
+</script>
+<h3>Wrap Element in JQuery</h3><br />
+<button id="btnWrap">Wrap DIV</button>
+<button id="btnWrapInner">WrapInner DIV</button>
+<div id="divWrap1">
+    <p>Div Wrap1</p>
+</div>
+<div id="divWrap2">
+    <p>Div Wrap2</p>
+</div>
+<div id="divWrap3">
+    <p>Div Wrap3</p>
+</div>
+<br />
+
+<script>
+    $(function () {
+        $('#btnUnwrap').click(function () {
+            $('#divWrap11,#divWrap22,#divWrap33').unwrap();  // it is going to unwarp from its parent DIV
+        });
+
+    });
+</script>
+<h3>This below Div is wrapped by parent DIV</h3>
+<button id="btnUnwrap">UnWrap DIV</button>
+<div class="containerDiv">
+    <div id="divWrap11">Div Wrap1</div>
+    <div id="divWrap22">Div Wrap2</div>
+    <div id="divWrap33">Div Wrap3</div>
+</div>
+
+<script>
+    $(function () {
+        $('#btnbefore').click(function () {
+            $('#divBF1,#divBF2,#divBF3').before('<h3>Hello karna Developer</h3>');
+
+        });
+
+        $('#btnafter').click(function () {
+            $('#divBF4,#divBF5,#divBF6').after('<h3>Hello karna Developer</h3>');
+
+        });
+    });
+
+
+</script>
+
+<h3>This below Div is going to have heading inserted before and after DIV!!</h3>
+<button id="btnbefore">Before</button>
+<button id="btnafter">After</button>
+<div class="containerDiv">
+    <div id="divBF1">Div for before</div>
+    <div id="divBF2">Div for before</div>
+    <div id="divBF3">Div for before</div>
+    <p>==================break=====================</p>
+    <div id="divBF4">Div for after</div>
+    <div id="divBF5">Div for after</div>
+    <div id="divBF6">Div for after</div>
+</div>
 @Html.ActionLink("Go Back", "Index")
