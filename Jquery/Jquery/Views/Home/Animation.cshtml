@@ -1,0 +1,67 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "Animation";
+}
+
+<h2>Animation Sample using Method Chaining in JQuery</h2>
+
+<script>
+    //Without method chaining
+    $(document).ready(function () {
+
+        $('#btn1').click(function () {
+            $('li').css('color', 'red');
+            $('li').slideUp(1000);   //which is 1 second
+            $('li').slideDown(1000);
+            $('li').attr('title', 'My Title');
+        });
+
+    });
+
+</script>
+
+<script>
+    //with method chaining
+    $(document).ready(function () {
+        $('#btn2').click(function () {
+            $('li').css('color', 'Green')
+                .slideUp(1000)
+                .slideDown(1000)
+                .attr('title', 'Nikson');
+        });
+
+    });
+
+</script>
+@*//Note: If you have non returning jquery object in method chaining then the animation will not work
+    for example, having text() in ('li').text() infront of other methods
+*@
+<script>
+    //with method chaining with non returing object jquery
+    $(document).ready(function () {
+        $('#btn3').click(function () {
+            $('li').text()
+                .css('color', 'Green')
+                .slideUp(1000)
+                .slideDown(1000)
+                .attr('title', 'Nikson');
+        });
+
+    });
+
+</script>
+
+<ul>
+    <li>USA</li>
+    <li>Canada</li>
+    <li>Nepal</li>
+    <li>India</li>
+    <li>South Korea</li>
+</ul>
+<br />
+<button id="btn1">Click Me! No Method chaining</button>
+<button id="btn2">Click Me! Method chaining</button>
+<button id="btn3">Click Me! Method chaining with non returning jquery object</button>
+
+
+@Html.ActionLink("Go Back", "Index")

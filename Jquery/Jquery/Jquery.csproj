@@ -130,6 +130,7 @@
     <Content Include="Views\Home\Selectors.cshtml" />
     <Content Include="Views\Home\Input.cshtml" />
     <Content Include="Views\Home\SelectorExtended.cshtml" />
+    <Content Include="Views\Home\Animation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
