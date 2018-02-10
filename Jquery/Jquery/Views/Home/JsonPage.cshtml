@@ -3,7 +3,7 @@
     ViewBag.Title = "JsonPage";
 }
 
-
+@*$(document).ready( function() {  // or shorthand of $( function () {*@
 <script>
     // Json Script involved
     $(document).ready(function () {
@@ -35,29 +35,31 @@
     //JSON Array
     $(document).ready(function () {
         //making Array of JSON
-        var Employee = [
-            {
-                "Name": "Nikson",
-                "Address": "Euless",
-                "Age": 9
-            },
+        var Employee = [{ "Name": "Nikson", "Address": "Euless", "Age": 9 }, { "Name": "Karna", "Address": "Dallas", "Age": 30 }];
+        //geting data from the JSON array
+        //$('#btn2').click(function () {
+        //    $('#div2').html(Employee[0].Name + "<br/>" + Employee[1].Name);
 
-            {
-                "Name": "Karna",
-                "Address": "Dallas",
-                "Age": 30
-            },
-            {
-                "Name": "Nanu",
-                "Address": "USA",
-                "Age": 29
+        //});
+        //or for all data retrival
 
-            }
-        ];
-        //geting data from the array
         $('#btn2').click(function () {
-            $('#div2').html(Employee[0].Name + "<br/>" + Employee[1].Name);
+            
+            var JsonString = JSON.stringify(Employee);   //Converting JSON Employee Object to string
+            $('#div2').html("JSON String:" + "<br/>"+JsonString +"<br/>");
 
+            //Now from String to Json array or Object
+            var JsonObj = JSON.parse(JsonString);  //converting JSON string to Object
+
+            var newJson = "";
+            $.each(JsonObj, function (i, item) {  //looping through 'res' string where 'i' is index and 'item' is value
+                newJson += "Name = " + item.Name + "<br/>";
+                newJson+= "Address = " + item.Address + "<br/>";
+                newJson += "Age = " + item.Age + "<br/><br/>";
+
+            });
+
+            $('#div2').append("JSON Object: "+"<br/>" + newJson);
         });
 
     });
@@ -93,14 +95,14 @@
             v1 += Emp.Karna.Salary + "<br/>" + "<br/>";
 
             var v2 = "Nanu Data: " + "<br />";
-            v2 += Emp.Nanu.Address + "<br/>" ;
+            v2 += Emp.Nanu.Address + "<br/>";
             v2 += Emp.Nanu.Salary + "<br/>" + "<br/>";
 
             var v3 = "Nikson Data: " + "<br />";
-            v3 += Emp.Nikson.Address + "<br/>" ;
+            v3 += Emp.Nikson.Address + "<br/>";
             v3 += Emp.Nikson.Salary + "<br/>";
 
-            $('#div3').html(v1+v2+v3);
+            $('#div3').html(v1 + v2 + v3);
 
         });
 
@@ -126,4 +128,4 @@
 <button id="btn3">Display</button>
 <div id="div3"></div>
 
-@Html.ActionLink("Go Back","Index")
+@Html.ActionLink("Go Back", "Index")
