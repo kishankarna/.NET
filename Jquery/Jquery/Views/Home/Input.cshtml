@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Input";
+}
+
+<h2>Difference between JQuery input and :input</h2>
+
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+
+<script>
+    //for Input Selector  //selects only input tag
+    $(document).ready(function () {
+
+        $('#inbtn1').click(function () {
+            $('input').each(function () {
+                alert($(this).val());
+            });
+
+
+        });
+    });
+</script>
+<script>
+    // for :Input Selector //selects all the inputs
+    $(document).ready(function () {
+
+        $('#inbtn2').click(function () {
+            $(':input').each(function () {
+                alert($(this).val());
+            });
+
+
+        });
+    });
+
+</script>
+<script>    //for input textbox only of type input="text"
+    $(document).ready(function () {
+
+        $('#inbtn3').click(function () {
+            $('input[type="text"]').each(function () {
+                alert($(this).val());
+            });
+
+
+        });
+    });
+</script>
+<body style="font-family:Arial">
+    <button id="inbtn1">Input Selector</button>
+    <button id="inbtn2">:Input Selector</button>
+    <button id="inbtn3">:Input Text Box only</button>
+    <hr />
+    First Name : <input type="text" value="John" />
+    <br /><br />
+    Last Name : <input type="text" value="Major" />
+    <br /><br />
+    Gender :
+    <input type="radio" name="gender" checked="checked" value="Male">Male
+    <input type="radio" name="gender" value="Female">Female
+    <br /><br />
+    Skills :
+    <input type="checkbox" name="skills" checked="checked" value="JavaScript" />JavaScript
+    <input type="checkbox" name="skills" checked="checked" value="jQuery" />jQuery
+    <input type="checkbox" name="skills" value="C#" />C#
+    <br /><br />
+    Country:
+    <select>
+        //for dropdownbox
+        <option selected="selected" value="USA">USA</option>
+        <option value="India">India</option>
+        <option value="UK">UK</option>
+    </select>
+    <br /><br />
+    Summary :
+    <br />
+    <textarea>I am a Senior Dot Net Developer with 10 years experience</textarea>
+    <br /><br />
+    <input type="submit" value="submit" />
+    <br />Click Me
+
+    @Html.ActionLink("Back", "Index")
+</body>
+
