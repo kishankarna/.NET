@@ -37,6 +37,11 @@ namespace Jquery.Controllers
         {
             return View();
         }
+        [ActionName("JsonPage")]
+        public ActionResult JSON()
+        {
+            return View();
+        }
     }
 
 

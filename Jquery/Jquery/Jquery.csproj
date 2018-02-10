@@ -131,6 +131,7 @@
     <Content Include="Views\Home\Input.cshtml" />
     <Content Include="Views\Home\SelectorExtended.cshtml" />
     <Content Include="Views\Home\Animation.cshtml" />
+    <Content Include="Views\Home\JsonPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

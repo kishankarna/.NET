@@ -1,0 +1,129 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "JsonPage";
+}
+
+
+<script>
+    // Json Script involved
+    $(document).ready(function () {
+        //creating JSON Objects
+        var JsonObject = {
+            "Name": "Karna",
+            "Address": "Euless, Tx",
+            "Email": "kisanthapamagar@mgail.com",
+            "Salary": 5000,
+            "Country": "USA"
+        };
+        // we are retrieving JSON object Data
+        $('#btn1').click(function () {
+            var res = '';
+            res += JsonObject.Name + "<br/>";
+            res += JsonObject.Address + "<br/>";
+            res += JsonObject.Email + "</br>";
+            res += JsonObject.Salary + "<br/>";
+            res += JsonObject.Country + "<br/>";
+            $('#div1').html(res);       //storing that Json Value in Div
+        });
+
+
+    });
+
+
+</script>
+<script>
+    //JSON Array
+    $(document).ready(function () {
+        //making Array of JSON
+        var Employee = [
+            {
+                "Name": "Nikson",
+                "Address": "Euless",
+                "Age": 9
+            },
+
+            {
+                "Name": "Karna",
+                "Address": "Dallas",
+                "Age": 30
+            },
+            {
+                "Name": "Nanu",
+                "Address": "USA",
+                "Age": 29
+
+            }
+        ];
+        //geting data from the array
+        $('#btn2').click(function () {
+            $('#div2').html(Employee[0].Name + "<br/>" + Employee[1].Name);
+
+        });
+
+    });
+
+</script>
+<script>
+    //JSON Nested Object  //another technique to store multiple data in JSON
+    $(document).ready(function () {
+        //making nexted object
+        var Emp = {
+            "Karna": {   //or "karna"
+                "Address": "Euless, TX",
+                "Salary": "$7000",
+                "Age": 31
+            },
+
+            "Nanu": {
+                "Address": "Dallas, TX",
+                "Salary": "$6900",
+                "Age": 30
+            },
+            "Nikson": {
+                "Address": "Irving,TX",
+                "Salary": "$10,000",
+                "Age": 21
+
+            }
+        };
+        //geting data from the nested Objects
+        $('#btn3').click(function () {
+            var v1 = "Karna Data: " + "<br />";
+            v1 += Emp.Karna.Address + "<br/>";
+            v1 += Emp.Karna.Salary + "<br/>" + "<br/>";
+
+            var v2 = "Nanu Data: " + "<br />";
+            v2 += Emp.Nanu.Address + "<br/>" ;
+            v2 += Emp.Nanu.Salary + "<br/>" + "<br/>";
+
+            var v3 = "Nikson Data: " + "<br />";
+            v3 += Emp.Nikson.Address + "<br/>" ;
+            v3 += Emp.Nikson.Salary + "<br/>";
+
+            $('#div3').html(v1+v2+v3);
+
+        });
+
+    });
+
+</script>
+
+<h2>Json Samples, Remeber it is case Sensitive</h2>
+
+<p>JSON is a JavaScript Object Notation.</p>
+<p>
+    Here we are creating JSON object to store data, It is a replacement to the XML data storing technique.
+</p>
+
+<button id="btn1">Display Json Data</button>
+<div id="div1"></div>
+<br />
+<p><strong>Json Array</strong></p>
+<button id="btn2">Display</button>
+<div id="div2"></div>
+<br />
+<p><strong>Json Nested Object</strong></p>
+<button id="btn3">Display</button>
+<div id="div3"></div>
+
+@Html.ActionLink("Go Back","Index")
