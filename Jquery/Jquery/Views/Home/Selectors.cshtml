@@ -1,0 +1,112 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "Selectors";
+}
+
+<script>
+    //this is for select by ID
+    $(document).ready(function () {
+
+        $('#btn1').click(function () {
+            alert('This is Submit Button')
+        });
+        $('#btn2').css('background-color', 'yellow');
+        $('#btn2').click(function () {
+            alert('This is Cancel Button')
+        });
+        $('#table2 tr:even').css('background-color', 'red');
+        $('#table2 tr:odd').css('background-color', 'gray');
+    });
+
+</script>
+<script>
+    // this is for select by element
+    $(document).ready(function () {
+        $('td').css('color', 'Brown');
+        //$('tr').css('background-color', 'grey');
+        $('#btnElement').click(function () {   //here i am using id selector to catch element
+            alert($('table').html());       //selecting table element
+        });
+
+    });
+
+</script>
+
+<script>
+    //This is for class selectors
+    $(document).ready(function () {
+        $('.cl1').css('border', '3px solid green');
+        $('.cl2').css('border', '2px dashed yellow')
+    });
+</script>
+<script> //This is for attributes selectors
+    $(document).ready(function () {
+        $('[title]').css('background-color', 'brown');
+        $('div[title]').css('color', 'yellow');
+        //$('div[title][style]').css('background-color', 'yellow');
+        $('div[title][style]').css('border', '3px solid black');    //selects div with title and style attributes
+    });
+</script>
+<script>//this is for attributes selectors with value
+    $(document).ready(function () {
+        $('[title=ttl2]').css('color', 'pink');
+        $('[title=ttl3]').css('background-color', 'violet');
+    });
+</script>
+
+<h2>This page has all kind of Selectors in Jquery</h2>
+
+This is Seleted by ID:
+<button id="btn1">Submit</button>
+<input type="submit" id="btn2" value="Cancel" />
+<br/><br/>
+
+This is Selected by Element:
+<div>This is heading div for table</div>
+<table border="1">
+
+    
+    <tr>
+        <td>Name</td>
+        <td>@Html.TextBox("txt1")</td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>@Html.Password("password")</td>
+    </tr>
+</table> <br/>Courses Available
+<table id="table2">
+    <tr><td>Java</td><td>C#</td><td>c#.NET</td></tr>
+    <tr><td>ADO.NET</td><td>C</td><td>C++</td></tr>
+    <tr><td>Jquery</td><td>Ajax</td><td>Php</td></tr>
+
+</table>
+<input type="submit" id="btnElement" value="Display Table" />
+
+<br />
+This is Selected by Class Element:
+<br />
+<div class="cl1">
+    This is Div Element and is selected by class element.
+</div>
+<span class="cl2"> This is again span element selected by class element</span>
+
+<br/>
+This is seleceted by attributes:
+<div title="ttl1" style="background-color:cadetblue">This is div selected by Title and Style attribute</div>
+<div title="ttl1" style="background-color:coral">This is div selected by Title and Style attribute</div>
+<div title="ttl1">This is div selected by Title attribute</div>
+
+<span title="ttl2">This is span selected by Title attribute</span>
+<p title="ttl3">This is a paragraph selcetd by Title Attribute</p>
+
+
+@Html.ActionLink("Go Back", "Index")
+
+
+
+
+
+
+
+
