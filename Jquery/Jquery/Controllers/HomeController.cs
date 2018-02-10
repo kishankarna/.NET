@@ -29,6 +29,10 @@ namespace Jquery.Controllers
         {
             return View();
         }
+        public ActionResult SelectorExtended()
+        {
+            return View();
+        }
     }
 
 
