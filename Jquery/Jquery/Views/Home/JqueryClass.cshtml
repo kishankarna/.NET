@@ -1,0 +1,290 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "JqueryClass";
+}
+
+<h3>Jquery Add, Remove, Toggle Class, focus and blur eventrs, change event, mouse events</h3>
+<style>
+    .boldClass {
+        font-weight: bold;
+    }
+
+    .italicsClass {
+        font-style: italic;
+    }
+
+    .colorClass {
+        color: red;
+    }
+</style>
+
+
+<script>
+    $(function () {
+        $('#btn1').click(function () {
+            $('p').addClass('colorClass');
+        });
+        $('#btn2').click(function () {
+            $('p').removeClass('colorClass');
+        });
+        $('#btn3').click(function () {
+            $('p').addClass('colorClass italicsClass');
+        });
+        $('#btn4').click(function () {
+            $('p').removeClass('colorClass italicsClass');
+        });
+        $('#btn5').click(function () {
+            $('p').addClass('colorClass italicsClass boldClass');
+        });
+        $('#btn6').click(function () {
+            $('p').removeClass('colorClass italicsClass boldClass');
+        });
+        $('#btn7').click(function () {
+            $('p').toggleClass('colorClass italicsClass boldClass');
+        });
+
+    });
+
+</script>
+
+ <p>This paragraph is goind to have some animation effect</p>
+    <table>
+        <tr>
+            <td>
+                <input id="btn1" style="width:250px" type="button"
+                       value="Add Color Class" />
+            </td>
+            <td>
+                <input id="btn2" style="width:250px" type="button"
+                       value="Remove Color Class" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btn3" style="width:250px" type="button"
+                       value="Add Color and Italics Classes" />
+            </td>
+            <td>
+                <input id="btn4" style="width:250px" type="button"
+                       value="Remove Color and Italics Classes" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btn5" style="width:250px" type="button"
+                       value="Add Color, Italics & Bold Classes" />
+            </td>
+            <td>
+                <input id="btn6" style="width:250px" type="button"
+                       value="Remove All Classes" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btn7" style="width:250px" type="button"
+                       value="Toggle Classes" />
+            </td>
+        </tr>
+    </table>
+<br/>
+
+<style>
+    .textboxclass {
+    color:cornflowerblue;
+    background-color:brown;
+    font-style:italic;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('input[type=text]').each(function () {
+            $(this).focus(function () {
+                $(this).addClass('textboxclass');
+            });
+            $(this).blur(function () {
+                $(this).removeClass('textboxclass');
+            });
+        });
+    });
+
+    $(function () {
+        $('#btnEffect').click(function () {
+            $('input[type=text]').val("");
+
+        });
+
+    });
+</script>
+
+<table>
+    <tr>
+        <td>First Name</td>
+        <td><input type="text" /></td>
+    </tr>
+
+    <tr>
+        <td>Last Name</td>
+        <td><input type="text"  /></td>
+    </tr>
+    <tr>
+        <td><button id="btnEffect">Clear</button></td>
+        
+    </tr>
+
+</table>
+<script>
+    $(function () {
+        $('#ddl1City').change(function () {
+            if ($(this).val() == "Select")
+            {
+                $('#dvSelect').html("Please Select City");
+            }
+            else {
+                $('#dvSelect').html($(this).val());
+
+                }
+            });
+    });
+
+</script>
+<p>Change Events</p>
+<select id="ddl1City">
+    <option value="Select">Select</option>
+    <option value="Butwal City">Butwal City</option>
+    <option value="Kathmandu City">Kathmandu City</option>
+    <option value="San Fransisco">San Fransisco</option>
+    <option value="New York">New York</option>
+</select>
+<br /> <div id="dvSelect"></div>
+<br/>
+
+<p>Mouse Events Below</p>
+<script>
+    $(function () {
+        //$('#imgFirstNameHelp').mouseover(function () {  //this is hardcode
+        //    $('#divFirstNameHelp').fadeIn(500);
+        //}).mouseout(function () {
+        //    $('#divFirstNameHelp').fadeOut(500);
+        //});
+        $('img[src="/images/help.png"]').mouseover(function () {  //this is dynamic coding and more flexible for multiple images
+            var a = $(this).attr('id');
+            var b = a.replace('img', 'div');
+            $('#' + b).fadeIn(500);
+            
+        }).mouseout(function () {
+            var a = $(this).attr('id');
+            var b = a.replace('img', 'div');
+            $('#' + b).fadeOut(500);
+          
+        });
+
+    });
+
+</script>
+<p>Mouse hover events on below occured</p>
+<table>
+    <tr>
+        <td>First Name</td>
+        <td style="vertical-align:middle">
+            <input id="txtFirstName" type="text" class="inputRequired" />
+
+        </td>
+        <td><img id="imgFirstNameHelp" src="~/images/help.png" /></td>
+        <td>
+            <div id="divFirstNameHelp" style="display:none">
+                First Name as shown in passport
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>
+            <input id="txtLastName" type="text" class="inputRequired" />
+        </td>
+        <td><img id="imgLastNameHelp" src="~/images/help.png" /></td>
+        <td>
+            <div id="divLastNameHelp" style="display:none">
+                Last Name as shown in passport
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>
+            <select id="ddlCity" class="inputRequired">
+                <option value="Select">Select</option>
+                <option value="New York">New York</option>
+                <option value="London">London</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Sydney">Sydney</option>
+            </select>
+        </td>
+        <td><img id="imgCityHelp" src="~/images/help.png" /></td>
+        <td>
+            <div id="divCityHelp" style="display:none">
+                Your residence city
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Favourite Color</td>
+        <td>
+            <input id="radioRed" name="color" type="radio" value="Red"
+                   class="inputRequired" />Red
+            <input id="radioGreen" name="color" type="radio" value="Green"
+                   class="inputRequired" />Green<br />
+            <input id="radioBlue" name="color" type="radio" value="Blue"
+                   class="inputRequired" />Blue
+        </td>
+        <td><img id="imgColorHelp" src="~/images/help.png" /></td>
+        <td>
+            <div id="divColorHelp" style="display:none">
+                Your Favourite Color
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Contact Method</td>
+        <td>
+            <input id="chkBoxEmail" type="checkbox" value="Email"
+                   class="inputRequired" />Email
+            <input id="chkBoxPhone" type="checkbox" value="Phone"
+                   class="inputRequired" />Phone<br />
+            <input id="chkBoxSocialMedia" type="checkbox" value="Social Media"
+                   class="inputRequired" />Social Media
+        </td>
+        <td><img id="imgContactMethodHelp" src="~/images/help.png" /></td>
+        <td>
+            <div id="divContactMethodHelp" style="display:none">
+                How should we contact you
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Comments
+        </td>
+        <td>
+            <textarea id="txtComments" class="inputRequired"></textarea>
+        </td>
+        <td><img id="imgCommentsHelp" src="~/images/help.png" /></td>
+        <td>
+            <div id="divCommentsHelp" style="display:none">
+                Your comments please
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="btnSubmit" type="button" value="Submit" />
+        </td>
+        <td>
+            <div id="divResult"></div>
+        </td>
+        <td></td>
+    </tr>
+</table>
+<br/>
+@Html.ActionLink("Go Back", "Index")
+

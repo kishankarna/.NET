@@ -42,6 +42,11 @@ namespace Jquery.Controllers
         {
             return View();
         }
+
+        public ActionResult JqueryClass()
+        {
+            return View();
+        }
     }
 
 
