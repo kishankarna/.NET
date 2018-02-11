@@ -50,6 +50,11 @@ namespace Jquery.Controllers
         public ActionResult Events() {
             return View();
         }
+
+        public ActionResult ImageAnimation()
+        {
+            return View();
+        }
     }
 
 

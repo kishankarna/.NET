@@ -1,0 +1,83 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "ImageAnimation";
+}
+
+<style>
+    .imgDesign {
+    height:100px;
+    width:100px;
+    border:3px solid white;  /*//in case of non border image put grey*/
+    
+    }
+
+</style>
+<h2>Animation using Jquery</h2>
+<img id="mainImg" src="/images/img4.jpg" style="border:3px solid white"/>
+<script>
+
+    $(function () {
+        $('#imgContainer img').on({     //here we are using json object
+
+
+            click: function () {
+                var imgUrl = $(this).attr('src');  //here attr is only getter
+                //$('#mainImg').attr('src', imgUrl); //here attr is setter
+                $('#mainImg').fadeOut(500, function () {  //when fadeout then insert that function
+
+                    $(this).attr('src', imgUrl);          // change the image url after fadeout ot load new img
+                }).fadeIn(500);                           //when new image loads in fade in
+            },
+            mouseover: function () {
+                $(this).css({
+                    "cursor": "pointer",
+                    "border-color": "yellow"
+                });
+            },
+            mouseout: function () {
+                $(this).css({
+                    "cursor": "default",
+                    "border-color": "white"
+                });
+            }
+
+
+        });
+
+
+    });
+
+</script>
+<div id="imgContainer">
+    @*<img class="imgDesign" src="/images/img1.jpg" />
+    <img class="imgDesign" src="/images/img2.jpg" />
+    <img class="imgDesign" src="/images/img3.jpg" />*@
+    <img class="imgDesign" src="/images/img4.jpg" />
+    <img class="imgDesign" src="/images/img5.jpg" />
+    <img class="imgDesign" src="/images/img6.jpg" />
+</div>
+
+<script>        //here animate takes 2 parameter, 1 json object and other is duration
+    $(function () {
+        $('#btnAnimate').mouseover(function () {
+
+            $('#divAnimate1').animate({
+                'font-size': 20
+            }, 1000);
+
+        }).mouseleave(function () {
+            $('#divAnimate1').animate({
+                'font-size': 12
+            }, 1000);
+
+        });
+         
+    });
+
+</script>
+<button id="btnAnimate">Hover over me</button>
+<div id="divAnimate1" style="font-size:12px">
+    This is karna thapa's animation
+</div>
+
+@Html.ActionLink("Go Back","Index")

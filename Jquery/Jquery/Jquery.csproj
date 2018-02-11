@@ -96,6 +96,12 @@
     <Content Include="Global.asax" />
     <Content Include="images\help.png" />
     <Content Include="images\images.jpg" />
+    <Content Include="images\img1.jpg" />
+    <Content Include="images\img2.jpg" />
+    <Content Include="images\img3.jpg" />
+    <Content Include="images\img4.jpg" />
+    <Content Include="images\img5.jpg" />
+    <Content Include="images\img6.jpg" />
     <Content Include="images\web-scraper.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -135,6 +141,7 @@
     <Content Include="Views\Home\JsonPage.cshtml" />
     <Content Include="Views\Home\JqueryClass.cshtml" />
     <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Home\ImageAnimation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
