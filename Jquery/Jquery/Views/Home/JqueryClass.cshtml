@@ -47,52 +47,52 @@
 
 </script>
 
- <p>This paragraph is goind to have some animation effect</p>
-    <table>
-        <tr>
-            <td>
-                <input id="btn1" style="width:250px" type="button"
-                       value="Add Color Class" />
-            </td>
-            <td>
-                <input id="btn2" style="width:250px" type="button"
-                       value="Remove Color Class" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input id="btn3" style="width:250px" type="button"
-                       value="Add Color and Italics Classes" />
-            </td>
-            <td>
-                <input id="btn4" style="width:250px" type="button"
-                       value="Remove Color and Italics Classes" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input id="btn5" style="width:250px" type="button"
-                       value="Add Color, Italics & Bold Classes" />
-            </td>
-            <td>
-                <input id="btn6" style="width:250px" type="button"
-                       value="Remove All Classes" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input id="btn7" style="width:250px" type="button"
-                       value="Toggle Classes" />
-            </td>
-        </tr>
-    </table>
-<br/>
+<p>This paragraph is goind to have some animation effect</p>
+<table>
+    <tr>
+        <td>
+            <input id="btn1" style="width:250px" type="button"
+                   value="Add Color Class" />
+        </td>
+        <td>
+            <input id="btn2" style="width:250px" type="button"
+                   value="Remove Color Class" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="btn3" style="width:250px" type="button"
+                   value="Add Color and Italics Classes" />
+        </td>
+        <td>
+            <input id="btn4" style="width:250px" type="button"
+                   value="Remove Color and Italics Classes" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="btn5" style="width:250px" type="button"
+                   value="Add Color, Italics & Bold Classes" />
+        </td>
+        <td>
+            <input id="btn6" style="width:250px" type="button"
+                   value="Remove All Classes" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="btn7" style="width:250px" type="button"
+                   value="Toggle Classes" />
+        </td>
+    </tr>
+</table>
+<br />
 
 <style>
     .textboxclass {
-    color:cornflowerblue;
-    background-color:brown;
-    font-style:italic;
+        color: cornflowerblue;
+        background-color: brown;
+        font-style: italic;
     }
 </style>
 
@@ -125,26 +125,25 @@
 
     <tr>
         <td>Last Name</td>
-        <td><input type="text"  /></td>
+        <td><input type="text" /></td>
     </tr>
     <tr>
         <td><button id="btnEffect">Clear</button></td>
-        
+
     </tr>
 
 </table>
 <script>
     $(function () {
         $('#ddl1City').change(function () {
-            if ($(this).val() == "Select")
-            {
+            if ($(this).val() == "Select") {
                 $('#dvSelect').html("Please Select City");
             }
             else {
                 $('#dvSelect').html($(this).val());
 
-                }
-            });
+            }
+        });
     });
 
 </script>
@@ -157,27 +156,44 @@
     <option value="New York">New York</option>
 </select>
 <br /> <div id="dvSelect"></div>
-<br/>
+<br />
 
 <p>Mouse Events Below</p>
 <script>
     $(function () {
-        //$('#imgFirstNameHelp').mouseover(function () {  //this is hardcode
+        //$('#imgFirstNameHelp').mouseover(function () {  //this is hardcode wher we have to do for all the elements
         //    $('#divFirstNameHelp').fadeIn(500);
         //}).mouseout(function () {
         //    $('#divFirstNameHelp').fadeOut(500);
         //});
-        $('img[src="/images/help.png"]').mouseover(function () {  //this is dynamic coding and more flexible for multiple images
+        // or ////
+        //$('img[src="/images/help.png"]').mouseover(function () {  //this is dynamic coding and more flexible for multiple images
+        //    var a = $(this).attr('id');
+        //    var b = a.replace('img', 'div');
+        //    $('#' + b).fadeIn(500);
+
+        //}).mouseout(function () {
+        //    var a = $(this).attr('id');
+        //    var b = a.replace('img', 'div');
+        //    $('#' + b).fadeOut(500);
+
+        //    });
+        // or  // similar to second option but more convinient way
+        //same approach can be approached with mouseenter=mouseover and mouseleave=mouseleave
+        //Now, we gonna use Hover Function which is like Hover(in,out)
+
+        $('img[src="/images/help.png"]').hover(function () {
             var a = $(this).attr('id');
             var b = a.replace('img', 'div');
             $('#' + b).fadeIn(500);
-            
-        }).mouseout(function () {
-            var a = $(this).attr('id');
-            var b = a.replace('img', 'div');
-            $('#' + b).fadeOut(500);
-          
-        });
+        },
+            function () {
+                var a = $(this).attr('id');
+                var b = a.replace('img', 'div');
+                $('#' + b).fadeOut(500);
+
+            });
+
 
     });
 
@@ -285,6 +301,6 @@
         <td></td>
     </tr>
 </table>
-<br/>
+<br />
 @Html.ActionLink("Go Back", "Index")
 
