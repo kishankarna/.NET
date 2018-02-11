@@ -134,6 +134,7 @@
     <Content Include="Views\Home\Animation.cshtml" />
     <Content Include="Views\Home\JsonPage.cshtml" />
     <Content Include="Views\Home\JqueryClass.cshtml" />
+    <Content Include="Views\Home\Events.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

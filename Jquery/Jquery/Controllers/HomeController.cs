@@ -47,6 +47,9 @@ namespace Jquery.Controllers
         {
             return View();
         }
+        public ActionResult Events() {
+            return View();
+        }
     }
 
 

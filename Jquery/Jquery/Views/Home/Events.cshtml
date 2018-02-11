@@ -1,0 +1,154 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "Events";
+}
+
+<h2>Events in jQuery</h2>
+
+
+<script>
+    //playing with event object
+    $(function () {
+        $('#btnObjEvent').click(function (event) {
+            var v = "Event is : " + event.type + "<br/>";
+            v += "X cordinate : " + event.pageX + "<br/>";
+            v += "Y cordinate : " + event.pageY + "<br/>";
+            v += "Target Type : " + event.target.type + "<br/>";
+            v += "Tag Name : " + event.target.tagName + "<br/>";
+            $('#Divmouse').html(v);
+        }).mouseover(function (event) {
+            var v = "Event is : " + event.type + "<br/>";
+            v += "X cordinate : " + event.pageX + "<br/>";
+            v += "Y cordinate : " + event.pageY + "<br/>";
+            v += "Target Type : " + event.target.type + "<br/>";
+            v += "Tag Name : " + event.target.tagName + "<br/>";
+            $('#Divmouse').html(v);
+        }).mouseleave(function () {
+            $('#Divmouse').html("");
+
+
+        });
+    });
+
+</script>
+<button id="btnObjEvent">Mouse Hover</button>
+<div id="Divmouse"></div>
+
+<script>
+    $(function () {
+        $('#btnWbtn').mouseup(function (event) {
+            //var k = event.which;   //give you which button cliked  -- 1 for left and 3 for right and 2 for middle
+            var btn = '';
+            switch (event.which) {
+                case 1:
+                    btn = "Left Button Clicked";
+                    break;
+                case 2:
+                    btn = "Middle Button Clicked";
+                    break;
+                case 3:
+                    btn = "Right Button Clicked";
+                    break;
+                default:
+                    btn = "Unknown Button Clicked"; break;
+            }
+            $('#DivWbtn').html(btn);
+        });
+
+    });
+
+</script>
+<h3>Find out which button cliked on mouse</h3>
+<button id="btnWbtn">Click Me</button>
+<div id="DivWbtn"></div>
+we can bind events in many way like bind and on. but here we are using on method
+<style>
+    .btnDesign {
+        background-color:blueviolet;
+        color:aqua;
+        cursor:pointer;
+        font-weight:bold;
+    }
+</style>
+<script>  //binding events with on method, For binding with bind technique just put bind in place of "on"
+    $(function () {
+        $('#btnOn').on({
+            click: function (event) {
+                $('#DivOn').html("You clicked me" + "X: "+event.pageX + "Y: "+event.pageY);
+            },
+            mouseover: function () {
+                $(this).addClass('btnDesign');
+            },
+            mouseleave: function () {
+                $(this).removeClass('btnDesign');
+                $('#DivOn').html("");
+            }
+           
+            
+        });
+    });
+
+</script>
+
+<h3>on Method to bind events </h3>
+<button id="btnOn" value="Play With Me!!">Click Me to create New List!!</button>
+<div id="DivOn"></div>
+<br/>
+
+<h3>Adding Event handler to dynamically added element</h3>
+<script>  //event for dynamically created elements
+    $(function () {
+        $('#btnEvent').on({         //creating new list for ul
+            click: function () {
+                $('ul').append("<li>New List Item</li>");
+
+            }
+        });
+
+        $('ul').on('click','li',function () {    //this is for dynamically created event for list 'li'
+            $(this).fadeOut(500);
+
+        });
+
+        $('#btnEventStop').on('click', function () {  //stoping fadeout event for 'li'
+            $('ul').undelegate('li', 'click');
+
+        });
+    });
+
+</script>
+<button id="btnEvent" value="Play With Me!!">Play With Me!!</button>
+<button id="btnEventStop" value="Stop Play With Me!!">Stop Play With Me!!</button>
+<ul>
+    <li>This is first List</li>
+
+</ul>
+
+<h3>This is scroll event</h3>
+<script>
+    $(function () {
+        $('#divScroll').scroll(function () {
+            $('h4').css('display', 'inline').fadeOut(2000);
+
+        });
+
+    });
+
+</script>
+<div id="divScroll" style="width:340px;height:200px; border:1px solid yellow; overflow:scroll">
+
+    jQuery API
+    jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal
+    and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works acros
+    s a multitude of browsers. If you're new to jQuery, we recommend that you check out the jQuery Learning Center.
+
+    If you're updating to a newer version of jQuery, be sure to read the release notes published on our blog.
+    If you're coming from a version prior 1.9, you should check out the 1.9 Upgrade Guide as well.
+
+    Note that this is the API documentation for jQuery core. Other projects have API docs in other locations:
+
+
+</div>
+<h4 style="display:none;color:cadetblue">You Scrolled Me</h4>
+<br/><br />
+@Html.ActionLink("Go Back", "Index")
