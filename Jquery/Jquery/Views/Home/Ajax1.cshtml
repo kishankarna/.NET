@@ -7,44 +7,80 @@
         var textboxes = $('input[type="text"]');
 
         textboxes.focus(function () {
-            var helpID = $(this).attr('id') + 'HelpDiv';       
+            var helpID = $(this).attr('id') + 'HelpDiv';
             // $('#' + helpID).load('http://date.jsontest.com/');       //this is from real time webservice data
-            $('#' + helpID).load('http://localhost:52162/help.html #'+ helpID);  //this is from same project
+            $('#' + helpID).load('http://localhost:52162/help.html #' + helpID);  //this is from same project
         });
         textboxes.blur(function () {
-            var helpID = $(this).attr('id') + 'HelpDiv';           
+            var helpID = $(this).attr('id') + 'HelpDiv';
             $('#' + helpID).html("");  //this is to clear div
         });
-     
+
     });
 
 </script>
 <div id="dv1"></div>
-<h2>This is first example for Ajax </h2>
-    <table>
-        <tr>
-            <td>First Name</td>
-            <td><input id="firstName" type="text" /></td>
-            <td><div id="firstNameHelpDiv"></div></td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td><input id="lastName" type="text" /></td>
-            <td><div id="lastNameHelpDiv"></div></td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td><input id="email" type="text" /></td>
-            <td><div id="emailHelpDiv"></div></td>
-        </tr>
-        <tr>
-            <td>Income</td>
-            <td><input id="income" type="text" /></td>
-            <td><div id="incomeHelpDiv"></div></td>
-        </tr>
-    </table>
+<h2>JQUERY AJAX Load Function data retrieval from HTML </h2>
+<table>
+    <tr>
+        <td>First Name</td>
+        <td><input id="firstName" type="text" /></td>
+        <td><div id="firstNameHelpDiv"></div></td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td><input id="lastName" type="text" /></td>
+        <td><div id="lastNameHelpDiv"></div></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input id="email" type="text" /></td>
+        <td><div id="emailHelpDiv"></div></td>
+    </tr>
+    <tr>
+        <td>Income</td>
+        <td><input id="income" type="text" /></td>
+        <td><div id="incomeHelpDiv"></div></td>
+    </tr>
+</table>
+<br />
+
+
+<center><h1>Web Api Consume </h1></center>
+
+
+<input type="button" id="btnCallService" value="GetEmployeeDetail" />
+<label id="lblData"></label>
+<script>
+    $(function () {
+        // Assign handlers immediately after making the request,
+        // and remember the jqXHR object for this request
+        var jqxhr = $.ajax("http://localhost:60185/samplewebservice.asmx/GetEmployeeDetail")
+            .done(function () {
+                alert("success");
+            })
+            .fail(function () {
+                alert("error");
+            })
+            .always(function () {
+                alert("complete");
+            });
+
+        // Perform other work here ...
+
+        // Set another completion function for the request above
+        jqxhr.always(function () {
+            alert("second complete");
+        });
+    });
+</script>
 
 
 
+
+<h2>Getting Web Service from Facebook, Real Time</h2>
+
+
+<br />
 
 @Html.ActionLink("Go Back", "Index")
