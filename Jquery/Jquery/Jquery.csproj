@@ -94,6 +94,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="help.html" />
     <Content Include="images\help.png" />
     <Content Include="images\images.jpg" />
     <Content Include="images\img1.jpg" />
@@ -142,6 +143,7 @@
     <Content Include="Views\Home\JqueryClass.cshtml" />
     <Content Include="Views\Home\Events.cshtml" />
     <Content Include="Views\Home\ImageAnimation.cshtml" />
+    <Content Include="Views\Home\Ajax1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

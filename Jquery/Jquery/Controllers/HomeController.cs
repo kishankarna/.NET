@@ -55,6 +55,11 @@ namespace Jquery.Controllers
         {
             return View();
         }
+        public ActionResult Ajax1()
+        {
+            return View();
+        }
+      
     }
 
 

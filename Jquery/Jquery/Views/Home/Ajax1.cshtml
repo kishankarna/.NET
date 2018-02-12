@@ -1,0 +1,50 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "Ajax1";
+}
+<script>
+    $(function () {
+        var textboxes = $('input[type="text"]');
+
+        textboxes.focus(function () {
+            var helpID = $(this).attr('id') + 'HelpDiv';       
+            // $('#' + helpID).load('http://date.jsontest.com/');       //this is from real time webservice data
+            $('#' + helpID).load('http://localhost:52162/help.html #'+ helpID);  //this is from same project
+        });
+        textboxes.blur(function () {
+            var helpID = $(this).attr('id') + 'HelpDiv';           
+            $('#' + helpID).html("");  //this is to clear div
+        });
+     
+    });
+
+</script>
+<div id="dv1"></div>
+<h2>This is first example for Ajax </h2>
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td><input id="firstName" type="text" /></td>
+            <td><div id="firstNameHelpDiv"></div></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input id="lastName" type="text" /></td>
+            <td><div id="lastNameHelpDiv"></div></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input id="email" type="text" /></td>
+            <td><div id="emailHelpDiv"></div></td>
+        </tr>
+        <tr>
+            <td>Income</td>
+            <td><input id="income" type="text" /></td>
+            <td><div id="incomeHelpDiv"></div></td>
+        </tr>
+    </table>
+
+
+
+
+@Html.ActionLink("Go Back", "Index")
