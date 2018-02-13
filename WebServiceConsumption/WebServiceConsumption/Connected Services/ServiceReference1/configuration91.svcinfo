@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="BnU3HmWSJVkLo7X98zBqoLs32AU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Q60XVrZ0EwMWVSlLoKBhwu1CFD0=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="SampleWebserviceSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="SampleWebserviceSoap" contract="ServiceReference1.SampleWebserviceSoap" bindingType="basicHttpBinding" address="http://localhost:64598/SampleWebservice.asmx" bindingConfiguration="SampleWebserviceSoap">
+    <endpoint name="SampleWebserviceSoap" contract="ServiceReference1.SampleWebserviceSoap" bindingType="basicHttpBinding" address="http://localhost/Webservicekarna/SampleWebservice.asmx" bindingConfiguration="SampleWebserviceSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:64598/SampleWebservice.asmx</serializedValue>
+          <serializedValue>http://localhost/Webservicekarna/SampleWebservice.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

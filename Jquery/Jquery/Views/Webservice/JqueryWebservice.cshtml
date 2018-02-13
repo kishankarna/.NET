@@ -1,0 +1,23 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+@{
+    ViewBag.Title = "JqueryWebservice";
+}
+
+<h2>Jquery Webservice</h2>
+
+
+<center><h4>Web Api Consume using jQuery AJAX</h4></center>
+
+
+
+<p id="item"></p>
+<script>
+    $(function () {
+
+             $('#item').load('http://date.jsontest.com/');       //this is from real time webservice data
+
+    });
+
+</script>
+
+@Html.ActionLink("Go Back","Index","Home")

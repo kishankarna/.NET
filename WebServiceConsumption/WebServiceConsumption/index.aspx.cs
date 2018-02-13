@@ -14,6 +14,8 @@ namespace WebServiceConsumption
 
         }
 
+
+
         protected void btnCalculate_Click(object sender, EventArgs e)
         {
             ServiceReference1.SampleWebserviceSoapClient client = new ServiceReference1.SampleWebserviceSoapClient();

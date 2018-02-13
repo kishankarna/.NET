@@ -163,6 +163,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WebserviceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -192,6 +193,9 @@
     <Content Include="Views\Home\Events.cshtml" />
     <Content Include="Views\Home\ImageAnimation.cshtml" />
     <Content Include="Views\Home\Ajax1.cshtml" />
+    <Content Include="Views\Webservice\JqueryWebservice.cshtml" />
+    <Content Include="Views\Webservice\facebook.cshtml" />
+    <Content Include="Views\Webservice\Weather.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
