@@ -17,13 +17,23 @@ namespace WebServiceConsumption
         protected void btnCalculate_Click(object sender, EventArgs e)
         {
             ServiceReference1.SampleWebserviceSoapClient client = new ServiceReference1.SampleWebserviceSoapClient();
-            string result = client.calculation(
-                Convert.ToInt32(txtFirstValue.Text), 
-                Convert.ToInt32(txtSecondValue.Text), 
-                txtOperation.Text);
 
-            lblResult.Text = result;
+            if (DDLOperation.SelectedValue !="-1")
+            {
+                string result = client.calculation(
+                    Convert.ToInt32(txtFirstValue.Text),
+                    Convert.ToInt32(txtSecondValue.Text),
+                    DDLOperation.SelectedValue);
 
+                lblResult.Text = result;
+                lblResult.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblResult.Text = "Select an Operation to Perform!!";
+                lblResult.ForeColor = System.Drawing.Color.Red;
+
+            }
         }
     }
 }

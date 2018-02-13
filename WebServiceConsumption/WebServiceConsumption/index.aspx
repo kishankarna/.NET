@@ -5,12 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-    </style>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
         <div>
@@ -33,7 +28,13 @@
             <tr>
                 <td>Operation</td>
                 <td>
-                    <asp:TextBox ID="txtOperation" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="DDLOperation" runat="server">
+                        <asp:ListItem Value="-1">Select Operation</asp:ListItem>
+                        <asp:ListItem Value="+">Add</asp:ListItem>
+                        <asp:ListItem Value="-">Subtract</asp:ListItem>
+                        <asp:ListItem Value="*">Multiply</asp:ListItem>
+                        <asp:ListItem Value="/">Divide</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>
