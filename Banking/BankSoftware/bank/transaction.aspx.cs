@@ -25,8 +25,30 @@ namespace BankSoftware.bank
                 
                     lblUsr.Text = "Current User : " + Session["name"].ToString();                       
                     lblUsr.ForeColor = Color.Green;
-                              
+                //for  options
+                if (Session["CheckingAccountID"] != null)
+                {
+                    DDLDepositTo.Items.Add("Checking");
+                    DDLWithdrawFrom.Items.Add("Checking");
+                    DDLTransTo.Items.Add("Checking");
+                }
+                if (Session["SavingAccountID"] != null)
+                {
+                    DDLDepositTo.Items.Add("Saving");
+                    DDLWithdrawFrom.Items.Add("Saving");
+                    DDLTransTo.Items.Add("Saving");
+                }
+                if (Session["CreditAccountID"] != null)
+                {
+                    DDLDepositTo.Items.Add("Credit");
+                    DDLWithdrawFrom.Items.Add("Credit");
+                    DDLTransTo.Items.Add("Credit");
+                }
+
+                
             }
+            
+
         }
 
 
@@ -42,7 +64,7 @@ namespace BankSoftware.bank
                 BtnTransfer.Visible = false;
                 BtnDeposit.Visible = false;
                 lblMsg.Text = string.Empty;
-                DDLDepositTo.SelectedIndex = 1;
+               // DDLDepositTo.SelectedIndex = 1;
                 DepositTxtCustID.Text = Session["custid"].ToString();
             }
             else
@@ -63,7 +85,7 @@ namespace BankSoftware.bank
                 BtnTransfer.Visible = false;
                 BtnWithdraw.Visible = false;
                 lblMsg.Text = string.Empty;
-                DDLWithdrawFrom.SelectedIndex = 1;
+              //  DDLWithdrawFrom.SelectedIndex = 1;
                 WithdrawTxtCustID.Text = Session["custid"].ToString();
             }
             else
@@ -105,13 +127,12 @@ namespace BankSoftware.bank
             else {
                 Usr = "Customer";
             }
-            if (DDLDepositTo.SelectedValue != "-1" && DDLDepositDescrip.SelectedValue != "-1")
-            {
+          //  if (DDLDepositTo.SelectedValue != "-1" && DDLDepositDescrip.SelectedValue != "-1")
+           // {
                 string usrID = Session["custid"].ToString();
-
                 double bal = 0;
                 //for checking
-                if (DDLDepositTo.SelectedIndex == 1)
+                if (DDLDepositTo.SelectedIndex == 1 && (Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null))
                 {
                     bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());      //getting balance from account table
                     double newBal = bal + Convert.ToDouble(txtAmountDeposit.Text);
@@ -120,8 +141,11 @@ namespace BankSoftware.bank
                          Convert.ToDouble(txtAmountDeposit.Text), Usr, DDLDepositDescrip.Text, Session["CheckingAccountID"].ToString(), newBal);
                     D1();
                 }
+                else {
+                    lblMsg.Text = "Create " + DDLDepositTo.SelectedItem.Text +"First";
+                }
                 //for saving
-                else if (DDLDepositTo.SelectedIndex == 2)
+                 if (DDLDepositTo.SelectedIndex == 2 && (Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null))
                 {
                     bal = accounts.GetAccountBalance(Session["SavingAccountID"].ToString());
                    // bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());    //getting balance from account table
@@ -131,8 +155,12 @@ namespace BankSoftware.bank
                          Convert.ToDouble(txtAmountDeposit.Text), Usr, DDLDepositDescrip.Text, Session["SavingAccountID"].ToString(), newBal);
                     D1();
                 }
-                //for credit
                 else
+                {
+                    lblMsg.Text = "Create " + DDLDepositTo.SelectedItem.Text + "First";
+                }
+                //for credit
+                if (DDLDepositTo.SelectedIndex==3 && (Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null))
                 {
                     bal = accounts.GetAccountBalance(Session["CreditAccountID"].ToString());
                    // bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());    //getting balance from account table
@@ -141,8 +169,12 @@ namespace BankSoftware.bank
                     CRUD_Operations.Deposits(Convert.ToDateTime(lblDepDate.Text), usrID, DDLDepositTo.Text + " Deposit",         //recording to transaction table
                          Convert.ToDouble(txtAmountDeposit.Text), Usr, DDLDepositDescrip.Text, Session["CreditAccountID"].ToString(), newBal);
                     D1();
-                }             
-            }
+                }
+                else
+                {
+                    lblMsg.Text = "Create " + DDLDepositTo.SelectedItem.Text + "First";
+                }
+           // }
             
         }
 
@@ -193,7 +225,7 @@ namespace BankSoftware.bank
                 string usrID = Session["custid"].ToString();
                 double amount = Convert.ToDouble(txtAmountWithdraw.Text);
                 //for checking
-                if (DDLWithdrawFrom.SelectedIndex == 1)
+                if (DDLWithdrawFrom.SelectedIndex == 1 && Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null)
                 {
                     bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());                     //getting balance from account table
                                                                                                                  // bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());      //getting balance from account table
@@ -211,8 +243,12 @@ namespace BankSoftware.bank
                         lblMsg.Text = "Amount not succifienct!!"; lblMsg.ForeColor = Color.Red; txtAmountWithdraw.Focus();
                     }
                 }
+                else
+                {
+                    lblMsg.Text = "Create " + DDLWithdrawFrom.SelectedItem.Text + "First";
+                }
                 //for saving
-                else if (DDLWithdrawFrom.SelectedIndex == 2)
+                if (DDLWithdrawFrom.SelectedIndex == 2 && Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null)
                 {
                     bal = accounts.GetAccountBalance(Session["SavingAccountID"].ToString());                     //getting balance from account table
                                                                                                                  // bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());      //getting balance from account table
@@ -231,8 +267,12 @@ namespace BankSoftware.bank
                     }
 
                 }
-                //for credit
                 else
+                {
+                    lblMsg.Text = "Create " + DDLWithdrawFrom.SelectedItem.Text + "First";
+                }
+                //for credit
+                if (DDLWithdrawFrom.SelectedIndex == 3 && Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null)
                 {
                     bal = accounts.GetAccountBalance(Session["CreditAccountID"].ToString());                     //getting balance from account table
                                                                                                                  // bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());      //getting balance from account table
@@ -251,10 +291,13 @@ namespace BankSoftware.bank
                     }
 
                 }
+                else
+                {
+                    lblMsg.Text = "Create " + DDLWithdrawFrom.SelectedItem.Text + "First";
+                }
 
-                   
 
-             }
+            }
                 
                
         }

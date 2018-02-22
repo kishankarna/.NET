@@ -63,25 +63,30 @@
                 <br />
                 <br />
                 <br />
-                Accounts:<asp:Label ID="lblMsg" runat="server"></asp:Label>
+                Accounts Portfolio:<asp:Label ID="lblMsg" runat="server"></asp:Label>
                 <br />
-                <table class="auto-style4" style="background-color:aquamarine">
+                <table class="auto-style4" style="background-color:aquamarine" border="2">
                     <tr>
-                        <td class="auto-style7">Checking :</td>
+                        <td class="auto-style7">
+                            <asp:Label ID="lblCheck0" runat="server" ForeColor="#0066FF">Checking Balance :</asp:Label>
+                        </td>
                         <td class="auto-style7">
                             <asp:Label ID="lblCheck" runat="server" ForeColor="#0066FF"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td>Saving : </td>
+                        <td>&nbsp;<asp:Label ID="lblSaving0" runat="server" ForeColor="#CC9900">Saving Balance :</asp:Label>
+                        </td>
                         <td>
-                            <asp:Label ID="lblSaving" runat="server"></asp:Label>
+                            <asp:Label ID="lblSaving" runat="server" ForeColor="#CC9900"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td>Credit Card :</td>
                         <td>
-                            <asp:Label ID="lblCredit" runat="server"></asp:Label>
+                            <asp:Label ID="lblCredit0" runat="server" ForeColor="#006600">Credit Balance :</asp:Label>
+                        </td>
+                        <td>
+                            <asp:Label ID="lblCredit" runat="server" ForeColor="#006600"></asp:Label>
                         </td>
                     </tr>
                 </table>

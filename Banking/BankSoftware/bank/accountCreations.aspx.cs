@@ -24,19 +24,29 @@ namespace BankSoftware.bank
 
         protected void Wizard1_FinishButtonClick(object sender, WizardNavigationEventArgs e)
         {
+            string cust=Session["custid"].ToString();
 
-            //account creation
-            accounts.createAccounts(lblAccount.Text,lblAccType.Text,Convert.ToDouble(lblAmount.Text),
-                lblPreparer.Text,Convert.ToDateTime(lblDate.Text), Session["custid"].ToString());
-            accounts.FirstDeposit(lblAccount.Text, Session["custid"].ToString(), Convert.ToDouble(lblAmount.Text),lblAccType.Text);
+            if (UserAccess.GetAccount(cust,lblAccType.Text))
+            {
+                lblMsg.Text = "You alreay have " + lblAccType.Text + "Account with us!!";
+                lblMsg.ForeColor = Color.Red;
+            }
+            else
+            {
 
-            //accounts.Deposits(lblAccount.Text, Convert.ToDouble(lblAmount.Text));
-            CRUD_Operations.Deposits(Convert.ToDateTime(DateTime.Now.ToShortDateString()),  Session["custid"].ToString(),"Opening Balance",
-                Convert.ToDouble(lblAmount.Text), lblAccType.Text, "Bank", lblAccount.Text, Convert.ToDouble(lblAmount.Text));
+                //account creation
+                accounts.createAccounts(lblAccount.Text, lblAccType.Text, Convert.ToDouble(lblAmount.Text),
+                    lblPreparer.Text, Convert.ToDateTime(lblDate.Text), Session["custid"].ToString());
+                accounts.FirstDeposit(lblAccount.Text, Session["custid"].ToString(), Convert.ToDouble(lblAmount.Text), lblAccType.Text);
 
-            lblMsg.Text = "Customer Account Created, Successfull!!";
-            lblMsg.ForeColor = Color.Green;
-            Wizard1.Enabled = false;
+                //accounts.Deposits(lblAccount.Text, Convert.ToDouble(lblAmount.Text));
+                CRUD_Operations.Deposits(Convert.ToDateTime(DateTime.Now.ToShortDateString()), Session["custid"].ToString(), "Opening Balance",
+                    Convert.ToDouble(lblAmount.Text), lblAccType.Text, "Bank", lblAccount.Text, Convert.ToDouble(lblAmount.Text));
+
+                lblMsg.Text = "Customer Account Created, Successfull!!";
+                lblMsg.ForeColor = Color.Green;
+                Wizard1.Enabled = false;
+            }
             
         }
 

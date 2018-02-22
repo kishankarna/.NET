@@ -98,5 +98,34 @@ namespace DALlayer
             }
          
         }
+
+        public static bool GetAccount(string custID,string AccountType)
+        {
+            bool accounFound=false;
+            //  string cs = ConfigurationManager.ConnectionStrings["bankcs"].ConnectionString;
+            string cs = "server=NIKSON-PC\\SQLEXPRESS;user id=sa; password=1k2k3k4k5k6k;database=bank ";
+            using (SqlConnection cn = new SqlConnection(cs))
+            {
+                cn.Open();
+                string query = "select AccountType from accounts where CustID=@id";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@id", custID);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())   //loop through for all acounts such that if the cust is present
+                    {
+                        if (dr[0].ToString() == AccountType)
+                        {
+                            accounFound = true;
+                        }
+                    }
+                }
+                return accounFound;
+            }
+        }
+
+
     }
 }

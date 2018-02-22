@@ -106,10 +106,7 @@
                                         <td>Deposit To :</td>
                                         <td>
                                             <asp:DropDownList ID="DDLDepositTo" runat="server">
-                                                <asp:ListItem Value="-1">Account Type</asp:ListItem>
-                                                <asp:ListItem>Checking</asp:ListItem>
-                                                <asp:ListItem>Saving</asp:ListItem>
-                                                <asp:ListItem>Credit</asp:ListItem>
+                                                <asp:ListItem Value="-1">Select Account</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -177,9 +174,7 @@
                                         <td>Withdraw From :</td>
                                         <td>
                                             <asp:DropDownList ID="DDLWithdrawFrom" runat="server">
-                                                <asp:ListItem Value="-1">Account Type</asp:ListItem>
-                                                <asp:ListItem>Checking</asp:ListItem>
-                                                <asp:ListItem>Saving</asp:ListItem>
+                                                <asp:ListItem Value="-1">Account Account</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -249,8 +244,6 @@
                                         <td>
                                             <asp:DropDownList ID="DDLTransTo" runat="server" Enabled="False">
                                                 <asp:ListItem Value="-1">Account Type</asp:ListItem>
-                                                <asp:ListItem>Checking</asp:ListItem>
-                                                <asp:ListItem>Saving</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>

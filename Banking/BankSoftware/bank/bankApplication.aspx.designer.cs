@@ -94,6 +94,15 @@ namespace BankSoftware.bank {
         protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
+        /// lblCheck0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCheck0;
+        
+        /// <summary>
         /// lblCheck control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace BankSoftware.bank {
         protected global::System.Web.UI.WebControls.Label lblCheck;
         
         /// <summary>
+        /// lblSaving0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSaving0;
+        
+        /// <summary>
         /// lblSaving control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,15 @@ namespace BankSoftware.bank {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSaving;
+        
+        /// <summary>
+        /// lblCredit0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCredit0;
         
         /// <summary>
         /// lblCredit control.

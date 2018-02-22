@@ -18,6 +18,7 @@ namespace BusinessLayer
         {
             UserCreatnRegister.createCustomer(_id, _password, _name, _address, _phone, _email);
         }
+
         public static string GetCashierPasswords(string _usr)
         {
             string pwd= UserCreatnRegister.GetCashPassword(_usr);
@@ -30,6 +31,12 @@ namespace BusinessLayer
             List<string> data = new List<string>();
             data = UserCreatnRegister.GetCusPassword(_usr);
             return data;
+        }
+
+        public static bool GetAccount(string _custID, string _AccountType)
+        {
+            return UserCreatnRegister.GetAccount(_custID, _AccountType);
+
         }
 
     }
