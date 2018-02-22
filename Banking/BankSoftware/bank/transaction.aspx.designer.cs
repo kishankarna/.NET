@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BankSoftware {
+namespace BankSoftware.bank {
     
     
     public partial class transaction {
@@ -121,13 +121,13 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.Label lblDepDate;
         
         /// <summary>
-        /// txtAccountDeposit control.
+        /// DepositTxtCustID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAccountDeposit;
+        protected global::System.Web.UI.WebControls.TextBox DepositTxtCustID;
         
         /// <summary>
         /// CheckUsrDeposit control.
@@ -139,13 +139,22 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.CheckBox CheckUsrDeposit;
         
         /// <summary>
-        /// DDLDepositFrom control.
+        /// RequiredFieldValidator10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLDepositFrom;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        
+        /// <summary>
+        /// DDLDepositDescrip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLDepositDescrip;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -157,13 +166,13 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// DDLaccTypeDeposit control.
+        /// DDLDepositTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLaccTypeDeposit;
+        protected global::System.Web.UI.WebControls.DropDownList DDLDepositTo;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -238,13 +247,13 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.Label lblDateW;
         
         /// <summary>
-        /// txtAccountWithdraw control.
+        /// WithdrawTxtCustID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAccountWithdraw;
+        protected global::System.Web.UI.WebControls.TextBox WithdrawTxtCustID;
         
         /// <summary>
         /// CheckUsrWithdraw control.
@@ -256,13 +265,22 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.CheckBox CheckUsrWithdraw;
         
         /// <summary>
-        /// DDLWithdrawFrom control.
+        /// RequiredFieldValidator11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLWithdrawFrom;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
+        
+        /// <summary>
+        /// DDLWithdrawDescrip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLWithdrawDescrip;
         
         /// <summary>
         /// RequiredFieldValidator4 control.
@@ -274,13 +292,13 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// DDLAccnTypeWithd control.
+        /// DDLWithdrawFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLAccnTypeWithd;
+        protected global::System.Web.UI.WebControls.DropDownList DDLWithdrawFrom;
         
         /// <summary>
         /// RequiredFieldValidator5 control.
@@ -355,13 +373,13 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.Label lblDateT;
         
         /// <summary>
-        /// txtAccountTransfer control.
+        /// TransferTxtCustID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAccountTransfer;
+        protected global::System.Web.UI.WebControls.TextBox TransferTxtCustID;
         
         /// <summary>
         /// CheckUsrTrans control.
@@ -373,13 +391,22 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.CheckBox CheckUsrTrans;
         
         /// <summary>
-        /// DDLaccntFromTrans control.
+        /// RequiredFieldValidator12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLaccntFromTrans;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
+        
+        /// <summary>
+        /// DDLTransFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLTransFrom;
         
         /// <summary>
         /// RequiredFieldValidator7 control.
@@ -391,13 +418,13 @@ namespace BankSoftware {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
-        /// DDLaccnTypeTrans control.
+        /// DDLTransTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLaccnTypeTrans;
+        protected global::System.Web.UI.WebControls.DropDownList DDLTransTo;
         
         /// <summary>
         /// RequiredFieldValidator8 control.

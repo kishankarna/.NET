@@ -6,25 +6,28 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("DVD Rental", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                </ul>
+                <li style="font-weight:bold">@Html.ActionLink("DVD Rental", "Home", "DVDRental")</li>
+            </ul>
             </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("New Rental","Rental")</li>
+                <li>@Html.ActionLink("Customer","Details","Customers") </li>
+                <li>@Html.ActionLink("Movies","Movies")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
     <div class="container body-content">
         @RenderBody()
@@ -43,5 +46,6 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+ 
 </body>
 </html>

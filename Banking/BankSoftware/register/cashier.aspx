@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cashier.aspx.cs" Inherits="BankSoftware.cashier" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cashier.aspx.cs" Inherits="BankSoftware.register.cashier" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-             background-color:cadetblue;
+             background-color:cornflowerblue;
             text-align: center;
         }
         .auto-style2 {
@@ -20,17 +20,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div><h2 class="auto-style1">Create cashier Details for the bank</h2>
-            <p class="auto-style1">&nbsp;</p>
-            <p class="auto-style1">&nbsp;</p>
+        <div><h2 class="auto-style1">United Local Bank</h2>
         </div>
-        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="1" Width="544px" OnFinishButtonClick="Wizard1_FinishButtonClick" CancelDestinationPageUrl="~/cashierLogin.aspx" DisplayCancelButton="True" OnNextButtonClick="Wizard1_NextButtonClick" >
-            <SideBarStyle VerticalAlign="Top" />
+        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="1" Width="544px" OnFinishButtonClick="Wizard1_FinishButtonClick" CancelDestinationPageUrl="~/cashierLogin.aspx" DisplayCancelButton="True" OnNextButtonClick="Wizard1_NextButtonClick" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" >
+            <HeaderStyle BackColor="#284E98" BorderColor="#EFF3FB" BorderStyle="Solid" BorderWidth="2px" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
+            <NavigationButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
+            <SideBarButtonStyle BackColor="#507CD1" Font-Names="Verdana" ForeColor="White" />
+            <SideBarStyle VerticalAlign="Top" BackColor="#507CD1" Font-Size="0.9em" />
             <StepNavigationTemplate>
                 <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious" Text="Previous" />
                 <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Next" />
                 <asp:Button ID="CancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </StepNavigationTemplate>
+            <StepStyle Font-Size="0.8em" ForeColor="#333333" />
             <WizardSteps>
                 <asp:WizardStep runat="server" title="Cashier Details">
                     <table class="auto-style2">

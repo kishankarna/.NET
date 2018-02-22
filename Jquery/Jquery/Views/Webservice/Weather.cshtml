@@ -2,9 +2,8 @@
 @{
     ViewBag.Title = "Weather";
 }
-
-<h2>Weather Report</h2>
 <script>
+    //Get weather API from :https://openweathermap.org/current#parameter
     $(function () {
 
         $('#SubmitCity').click(function () {
@@ -19,16 +18,20 @@
         if (city != '') {
 
             $.ajax({
-               
+
                 url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=Imperial" +
                 "&APPID=c10bb3bd22f90d636baa008b1529ee25",
-               
+
                 type: "GET",
                 dataType: "jsonp",
                 success: function (data) {
                     var widget = showResults(data);
                     $("#showWeather").html(widget);
+                },
+                error: function () {
+                    $("#showWeather").html("No such City Found!!");
                 }
+
             });
         }
         else {
@@ -42,24 +45,38 @@
             "<p>Description: <img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'>" +
             data.weather[0].description + "</p>" +
             "<p>Temperature: " + data.main.temp + " &deg;F</p>" +
-            "<p>Pressure: " + data.main.pressure + "hpa"+"</p>" +
-            "<p>Humidity: " + data.main.humidity + "%"+ "</p>" +
+            "<p>Pressure: " + data.main.pressure + "hpa" + "</p>" +
+            "<p>Humidity: " + data.main.humidity + "%" + "</p>" +
             "<p>Min Temperature: " + data.main.temp_min + " &deg;F</p>" +
             "<p>Max Temperature: " + data.main.temp_max + " &deg;F</p>" +
             "<p>Wind Speed: " + data.wind.speed + "m/s</p>" +
             "<p>Wind Direction: " + data.wind.deg + "&deg;</p>";
-          
 
-            //"<p>Rain: " + data.rain.3h+ "</p>" +
-            //    "<p>Snow: " + data.snow.3h+ "</p>" 
 
-}
+    }
 </script>
-<input type="text" id="city"/>
-<button id="SubmitCity">Search City</button>
-<div id="error"></div>
+<center><h2>Weather</h2></center>
+<table align="center">
 
-<div id="showWeather"></div>
 
+    <tr>
+        <td>
+            <input type="text" id="city" />
+        </td>
+        <td>
+            <button id="SubmitCity">Search City</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="error"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="showWeather"></div>
+        </td>
+    </tr>
+</table>
 
 @Html.ActionLink("Go Back", "Index", "Home")

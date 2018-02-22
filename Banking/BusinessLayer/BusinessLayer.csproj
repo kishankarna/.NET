@@ -43,6 +43,7 @@
     <Compile Include="accounts.cs" />
     <Compile Include="checkingOperation.cs" />
     <Compile Include="CRUD_Operations.cs" />
+    <Compile Include="savingOperation.cs" />
     <Compile Include="UserAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="saving.aspx.cs" Inherits="BankSoftware.saving" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="checking.aspx.cs" Inherits="BankSoftware.bank.checking" %>
 
 <!DOCTYPE html>
 
@@ -12,6 +12,7 @@
         }
         .auto-style4 {
             width: 100%;
+            
         }
         .auto-style5 {
             width: 146px;
@@ -20,8 +21,8 @@
             width: 814px;
         }
         .auto-style1 {
-             background-color:cadetblue;
             text-align: center;
+             background-color:cornflowerblue;
         }
         .auto-style7 {
             height: 22px;
@@ -39,23 +40,23 @@
            
         </div>
         </div>
-    <table class="auto-style4">
+    <table class="auto-style4" >
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                <h2 class="auto-style1">Bank Application</h2></td>
+                <h2 class="auto-style1">United Local Bank</h2></td>
             <td>
-                <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/bank/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
                 &nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bankApplication.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/transaction.aspx">Transaction</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/transaction.aspx">Transaction</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/checking.aspx">Checking Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/bank/saving.aspx">Saving Account</asp:HyperLink>
                 <br />
                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
             </td>
@@ -68,17 +69,33 @@
                 <br />
                 <br />
                 <br />
-                Saving Account:<br />
-                <table class="auto-style4">
+                Account Activities:<asp:Label ID="lblMsg" runat="server"></asp:Label>
+                <br />
+                <table class="auto-style4" style="background-color:aquamarine">
                     <tr>
-                        <td class="auto-style8">Saving Balance :<asp:Label ID="lblCheck" runat="server"></asp:Label>
+                        <td class="auto-style8">
+                            <asp:Label ID="Label1" runat="server" ForeColor="#00CCFF" Text="Available Balance : $"></asp:Label>
+&nbsp;<asp:Label ID="lblCheck" runat="server" ForeColor="#0099FF"></asp:Label>
                         </td>
                         <td class="auto-style7">
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            &nbsp;</td>
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="525px">
+                                <AlternatingRowStyle BackColor="White" />
+                                <EditRowStyle BackColor="#7C6F57" />
+                                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#E3EAEB" />
+                                <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                <SortedDescendingHeaderStyle BackColor="#15524A" />
+                            </asp:GridView>
+                        </td>
                     </tr>
                     </table>
                 <br />
@@ -104,8 +121,8 @@
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                <address class="auto-style1">Contact: Karna Thapa</br>
-                         Address: Euless, TX </br>
+                <address class="auto-style1">Contact: Karna Thapa<br/>
+                         Address: Euless, TX <br/>
                          Email: kisanthapamagar@gmail.com
                 </address><br />
             </td>

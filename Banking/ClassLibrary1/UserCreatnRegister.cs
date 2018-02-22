@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Data;
 using System.Configuration;
+using System.Collections.Generic;
+
 namespace DALlayer
 {
     public class UserCreatnRegister
@@ -23,22 +24,27 @@ namespace DALlayer
                 }          
         }
 
-        public static DataTable GetCusPassword(string usrID)
+        public static List<string> GetCusPassword(string usrID)
         {
-            DataTable data = new DataTable ();
+            //DataTable data = new DataTable ();
             //  string cs = ConfigurationManager.ConnectionStrings["bankcs"].ConnectionString;
             string cs = "server=NIKSON-PC\\SQLEXPRESS;user id=sa; password=1k2k3k4k5k6k;database=bank ";
+            List<string> data = new List<string>();
             using (SqlConnection cn = new SqlConnection(cs))
             {
                 cn.Open();
-                string query = "select * from customer where custID=@id";
+                string query = "select Password,Name from customer where custID=@id";
                 SqlCommand cmd = new SqlCommand(query, cn);
                 cmd.Parameters.AddWithValue("@id", usrID);
-                SqlDataAdapter dr = new SqlDataAdapter(cmd);
-
-                dr.Fill(data);
-                cn.Close();
-                return data;
+                //SqlDataAdapter dr = new SqlDataAdapter(cmd);
+                SqlDataReader dr= cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    data.Add(dr[0].ToString());
+                    data.Add(dr[1].ToString());
+                    return data;
+                }
+                return null;
                
             }
             
@@ -71,15 +77,14 @@ namespace DALlayer
             }
         }
 
-        public static void createCustomer(string id, string password, string name, string address, string phone, string email, 
-            string accountID, string accountType, DateTime date, double money, string cashierID)
+        public static void createCustomer(string id, string password, string name, string address, string phone, string email)
         {
            
             string cs = "server=NIKSON-PC\\SQLEXPRESS;user id=sa; password=1k2k3k4k5k6k;database=bank ";
             using (SqlConnection cn = new SqlConnection(cs))
             { 
                 cn.Open();
-                string query = "insert into customer values(@id,@password,@name,@address,@phone,@email,@accountID,@accountType, @date,@money,@cashierName)";
+                string query = "insert into customer values(@id,@password,@name,@address,@phone,@email)";
 
                 SqlCommand cmd = new SqlCommand(query, cn);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -88,11 +93,7 @@ namespace DALlayer
                 cmd.Parameters.AddWithValue("@address", address);
                 cmd.Parameters.AddWithValue("@phone", phone);
                 cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@accountID", accountID);
-                cmd.Parameters.AddWithValue("@accountType", accountType);
-                cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@money", money);
-                cmd.Parameters.AddWithValue("@cashierName", cashierID);
+               
                 cmd.ExecuteNonQuery();
             }
          

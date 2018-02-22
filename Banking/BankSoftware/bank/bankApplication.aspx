@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="accountSettings.aspx.cs" Inherits="BankSoftware.accountSettings" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bankApplication.aspx.cs" Inherits="BankSoftware.bank.bankApplication" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,10 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-
+        .auto-style1 {
+            text-align: center;
+            background-color:cornflowerblue;
+        }
         .auto-style2 {
             text-align: right;
         }
@@ -19,49 +22,69 @@
         .auto-style6 {
             width: 814px;
         }
-        .auto-style1 {
-            text-align: center;
-             background-color:cadetblue;
+        .auto-style7 {
+            height: 22px;
         }
-        </style>
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="auto-style2">
-        <div>
-           
-        </div>
+
         </div>
     <table class="auto-style4">
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                <h2 class="auto-style1">Bank Application</h2></td>
-            <td>&nbsp;<asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/admin/admin.aspx">Check Users</asp:HyperLink>
-                <asp:Label ID="lblUsr" runat="server"></asp:Label>
+                <h2 class="auto-style1">Your Account Details</h2></td>
+            <td>
+                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bank/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
+                &nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bankApplication.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/transaction.aspx">Transaction</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/transaction.aspx">Transaction</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/checking.aspx">Checking Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/bank/checking.aspx">Checking Account</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/saving.aspx">Saving Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/bank/saving.aspx">Saving Account</asp:HyperLink>
                 <br />
                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
             </td>
             <td class="auto-style6">
                 <br />
-                <br /><h2 class="auto-style1">Account Settings</h2>
                 <br />
                 <br />
                 <br />
                 <br />
                 <br />
                 <br />
+                <br />
+                Accounts:<asp:Label ID="lblMsg" runat="server"></asp:Label>
+                <br />
+                <table class="auto-style4" style="background-color:aquamarine">
+                    <tr>
+                        <td class="auto-style7">Checking :</td>
+                        <td class="auto-style7">
+                            <asp:Label ID="lblCheck" runat="server" ForeColor="#0066FF"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Saving : </td>
+                        <td>
+                            <asp:Label ID="lblSaving" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Credit Card :</td>
+                        <td>
+                            <asp:Label ID="lblCredit" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
                 <br />
                 <br />
                 <br />
@@ -85,8 +108,8 @@
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                <address class="auto-style1">Contact: Karna Thapa</br>
-                         Address: Euless, TX </br>
+                <address class="auto-style1">Contact: Karna Thapa<br/>
+                         Address: Euless, TX <br/>
                          Email: kisanthapamagar@gmail.com
                 </address><br />
             </td>

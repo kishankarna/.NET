@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customer.aspx.cs" Inherits="BankSoftware.customer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customer.aspx.cs" Inherits="BankSoftware.register.customer" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <style type="text/css">
 
         .auto-style1 {
-             background-color:cadetblue;
+             background-color:cornflowerblue;
             text-align: center;
         }
         .auto-style2 {
@@ -21,12 +21,9 @@
 </head>
 <body>
     <form id="form2" runat="server">
-        <div><h2 class="auto-style1">Create customer Details for the bank</h2>
-            <p class="auto-style1">&nbsp;</p>
-            <p class="auto-style1">&nbsp;</p>
+        <div><h2 class="auto-style1">United Local Bank</h2>
         </div>
-        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" Width="643px" OnFinishButtonClick="Wizard1_FinishButtonClick" CancelDestinationPageUrl="~/customerLogin.aspx" DisplayCancelButton="True" OnNextButtonClick="Wizard1_NextButtonClick" >
-            <SideBarStyle VerticalAlign="Top" />
+        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" Width="643px" OnFinishButtonClick="Wizard1_FinishButtonClick" CancelDestinationPageUrl="~/customerLogin.aspx" DisplayCancelButton="True" OnNextButtonClick="Wizard1_NextButtonClick" OnCancelButtonClick="Wizard1_CancelButtonClick" >
             <StepNavigationTemplate>
                 <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious" Text="Previous" />
                 <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Next" />
@@ -73,10 +70,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Date :</td>
-                            <td>
-                                <asp:TextBox ID="txtDate" runat="server" Enabled="False"></asp:TextBox>
-                            </td>
+                            <td colspan="2">&nbsp;</td>
                             <td>
                                 &nbsp;</td>
                         </tr>
@@ -125,56 +119,6 @@
                         </tr>
                     </table>
                 </asp:WizardStep>
-                <asp:WizardStep runat="server" Title="Account Information">
-                    <table class="auto-style2">
-                        <tr>
-                            <td>A/C No :</td>
-                            <td>
-                                <asp:TextBox ID="txtAccn" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtAccn" ErrorMessage="Required Account number creation" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Amount :</td>
-                            <td>
-                                <asp:TextBox ID="txtAmount" runat="server" TextMode="Number"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required Amount" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CashierID/Name :</td>
-                            <td>
-                                <asp:TextBox ID="txtCashierID" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtCashierID" ErrorMessage="Required CashierID or Cashier Name" ForeColor="#FF3300">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Account Type : </td>
-                            <td>
-                                <asp:DropDownList ID="DDLaccountType" runat="server">
-                                    <asp:ListItem Value="-1">Select Account</asp:ListItem>
-                                    <asp:ListItem>Checking</asp:ListItem>
-                                    <asp:ListItem>Saving</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:Label ID="Label1" runat="server" Text="Only Checking Available"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <br />
-                                <asp:ValidationSummary ID="ValidationSummary3" runat="server" ForeColor="#FF3300" />
-                            </td>
-                        </tr>
-                    </table>
-                </asp:WizardStep>
                 <asp:WizardStep runat="server" Title="Summary">
                     <table class="auto-style2">
                         <tr>
@@ -213,36 +157,7 @@
                                 <asp:Label ID="lblEmail" runat="server"></asp:Label>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Date :</td>
-                            <td>
-                                <asp:Label ID="lblDate" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Account No:</td>
-                            <td>
-                                <asp:Label ID="lblAccn" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Amount : </td>
-                            <td>
-                                <asp:Label ID="lblAmount" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cashier : </td>
-                            <td>
-                                <asp:Label ID="lblCashier" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Account Type :</td>
-                            <td>
-                                <asp:Label ID="lblAccType" runat="server"></asp:Label>
-                            </td>
-                        </tr>
+                       
                     </table>
                 </asp:WizardStep>
             </WizardSteps>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BankSoftware {
+namespace BankSoftware.register {
     
     
     public partial class cashier {

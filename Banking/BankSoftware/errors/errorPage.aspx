@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="errorPage.aspx.cs" Inherits="CsharpWebApp.Error_Handling_in_ASP.NET.error" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="errorPage.aspx.cs" Inherits="CsharpWebApp.Error_Handling_in_ASP.NET.error" %>--%>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="errorPage.aspx.cs" Inherits="BankSoftware.errors.errorPage" %>
 
 <!DOCTYPE html>
 

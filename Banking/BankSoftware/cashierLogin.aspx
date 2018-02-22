@@ -15,7 +15,7 @@
     </style>
     </head>
 <body>
-    <h2 class="auto-style1">Cashier Login Information</h2>
+    <h2 class="auto-style1">United Local Bank</h2>
     <p class="auto-style1">&nbsp;</p>
     <p class="auto-style1">&nbsp;</p>
     <p class="auto-style1">&nbsp;</p>
@@ -23,7 +23,7 @@
     <p class="auto-style1">&nbsp;</p>
     <form id="form1" runat="server">
         <div>
-            <table border="1" width="500" align="center" style="background-color:aquamarine">
+            <table border="1" width="500" align="center" style="background-color:cornflowerblue">
                 <tr>
                     <td class="auto-style2">User ID</td>
                     <td>

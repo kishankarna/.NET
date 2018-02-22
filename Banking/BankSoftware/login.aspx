@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="BankSoftware.customerLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="BankSoftware.login" %>
 
 <!DOCTYPE html>
 
@@ -18,14 +18,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
-    <h2 class="auto-style1">Customer Login Information</h2>
+    <h2 class="auto-style1">United Local Bank</h2>
     <p class="auto-style1">&nbsp;</p>
     <p class="auto-style1">&nbsp;</p>
     <p class="auto-style1">&nbsp;</p>
     <p class="auto-style1">&nbsp;</p>
     <p class="auto-style1">&nbsp;</p>
         <div>
-            <table border="1" width="500" align="center" style="background-color:aquamarine">
+            <table border="1" width="500" align="center" style="background-color:cornflowerblue">
                 <tr>
                     <td colspan="2"><h2 class="auto-style1">Login Window</h2></td>
                 </tr>

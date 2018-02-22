@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="transaction.aspx.cs" Inherits="BankSoftware.transaction" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="transaction.aspx.cs" Inherits="BankSoftware.bank.transaction" %>
 
 <!DOCTYPE html>
 
@@ -21,7 +21,7 @@
         }
         .auto-style1 {
             text-align: center;
-             background-color:cadetblue;
+             background-color:cornflowerblue;
         }
         .auto-style3 {
             margin-left: 0px;
@@ -45,20 +45,20 @@
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                <h2 class="auto-style1">Bank Application</h2></td>
-            <td>&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
+                <h2 class="auto-style1">United Local Bank</h2></td>
+            <td>&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
                 <asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/bankApplication.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/transaction.aspx">Transaction</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bank/transaction.aspx">Transaction</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/checking.aspx">Checking Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/bank/checking.aspx">Checking Account</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/saving.aspx">Saving Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/bank/saving.aspx">Saving Account</asp:HyperLink>
                 <br />
                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
             </td>
@@ -80,38 +80,40 @@
                                 <br />
                                 <table class="auto-style4" title="Deposit">
                                     <tr>
-                                        <td>Account Number :</td>
+                                        <td>User ID :</td>
                                         <td>
-                                            <asp:TextBox ID="txtAccountDeposit" runat="server" Enabled="False"></asp:TextBox>
-                                            <asp:CheckBox ID="CheckUsrDeposit" runat="server" AutoPostBack="True" OnCheckedChanged="CheckUsrDeposit_CheckedChanged" Text="Cashier" />
+                                            <asp:TextBox ID="DepositTxtCustID" runat="server" Enabled="False"></asp:TextBox>
+                                            <asp:CheckBox ID="CheckUsrDeposit" runat="server" Text="Are you Cashier?" />
                                         </td>
                                         <td>
-                                            &nbsp;</td>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="DepositTxtCustID" ErrorMessage="Required Account Selection" ForeColor="#FF3300" InitialValue="-1">*</asp:RequiredFieldValidator>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>From</td>
+                                        <td>Transaction Description :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLDepositFrom" runat="server">
+                                            <asp:DropDownList ID="DDLDepositDescrip" runat="server">
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                                 <asp:ListItem>Teller</asp:ListItem>
                                                 <asp:ListItem Value="Self">Online / ATM</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DDLDepositFrom" ErrorMessage="Required Selection" ForeColor="#FF3300" ValidationGroup="deposit">*</asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DDLDepositDescrip" ErrorMessage="Required Selection" ForeColor="#FF3300" ValidationGroup="deposit" InitialValue="-1">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Deposit To :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLaccTypeDeposit" runat="server">
+                                            <asp:DropDownList ID="DDLDepositTo" runat="server">
                                                 <asp:ListItem Value="-1">Account Type</asp:ListItem>
                                                 <asp:ListItem>Checking</asp:ListItem>
                                                 <asp:ListItem>Saving</asp:ListItem>
+                                                <asp:ListItem>Credit</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DDLaccTypeDeposit" ErrorMessage="Required Account" ForeColor="#FF3300" ValidationGroup="deposit">*</asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DDLDepositTo" ErrorMessage="Required Account" ForeColor="#FF3300" ValidationGroup="deposit" InitialValue="-1">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -149,38 +151,39 @@
                                 <br />
                                 <table class="auto-style4">
                                     <tr>
-                                        <td class="auto-style8">Account Number : </td>
+                                        <td class="auto-style8">User ID : </td>
                                         <td class="auto-style8">
-                                            <asp:TextBox ID="txtAccountWithdraw" runat="server" Enabled="False" ></asp:TextBox>
-                                            <asp:CheckBox ID="CheckUsrWithdraw" runat="server" AutoPostBack="True" OnCheckedChanged="CheckUsrWithdraw_CheckedChanged" Text="Cashier" />
+                                            <asp:TextBox ID="WithdrawTxtCustID" runat="server" Enabled="False"></asp:TextBox>
+                                            <asp:CheckBox ID="CheckUsrWithdraw" runat="server" Text="Are you Cashier?" />
                                         </td>
                                         <td class="auto-style8">
-                                            &nbsp;</td>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="WithdrawTxtCustID" ErrorMessage="Required Account Selection" ForeColor="#FF3300" InitialValue="-1">*</asp:RequiredFieldValidator>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="auto-style8">From</td>
+                                        <td class="auto-style8">Transacation Description :</td>
                                         <td class="auto-style8">
-                                            <asp:DropDownList ID="DDLWithdrawFrom" runat="server" OnSelectedIndexChanged="DDLWithdrawFrom_SelectedIndexChanged">
+                                            <asp:DropDownList ID="DDLWithdrawDescrip" runat="server">
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                                 <asp:ListItem>Teller</asp:ListItem>
                                                 <asp:ListItem Value="Self">Online / ATM</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td class="auto-style8">
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DDLWithdrawFrom" ErrorMessage="Required Selection" ForeColor="#FF3300" ValidationGroup="withdraw">*</asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DDLWithdrawDescrip" ErrorMessage="Required Selection" ForeColor="#FF3300" ValidationGroup="withdraw" InitialValue="-1">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Withdraw From :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLAccnTypeWithd" runat="server">
+                                            <asp:DropDownList ID="DDLWithdrawFrom" runat="server">
                                                 <asp:ListItem Value="-1">Account Type</asp:ListItem>
                                                 <asp:ListItem>Checking</asp:ListItem>
                                                 <asp:ListItem>Saving</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DDLAccnTypeWithd" ErrorMessage="Required Account Type Selection" ForeColor="#FF3300" ValidationGroup="withdraw">*</asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DDLWithdrawFrom" ErrorMessage="Required Account Type Selection" ForeColor="#FF3300" ValidationGroup="withdraw" InitialValue="-1">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -219,38 +222,39 @@
                                 <br />
                                 <table class="auto-style4">
                                     <tr>
-                                        <td>Account Number :</td>
+                                        <td>User ID :</td>
                                         <td>
-                                            <asp:TextBox ID="txtAccountTransfer" runat="server" Enabled="False"></asp:TextBox>
-                                            <asp:CheckBox ID="CheckUsrTrans" runat="server" AutoPostBack="True" Enabled="False" OnCheckedChanged="CheckUsrTrans_CheckedChanged" Text="Cashier" />
+                                            <asp:TextBox ID="TransferTxtCustID" runat="server" Enabled="False"></asp:TextBox>
+                                            <asp:CheckBox ID="CheckUsrTrans" runat="server" Enabled="False" Text="Are you Cashier?" />
                                         </td>
                                         <td>
-                                            &nbsp;</td>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="TransferTxtCustID" ErrorMessage="Required Account Selection" ForeColor="#FF3300" InitialValue="-1">*</asp:RequiredFieldValidator>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>From</td>
+                                        <td>From :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLaccntFromTrans" runat="server" Enabled="False">
+                                            <asp:DropDownList ID="DDLTransFrom" runat="server" Enabled="False">
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                                 <asp:ListItem>Teller</asp:ListItem>
                                                 <asp:ListItem Value="Self">Online / ATM</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DDLaccntFromTrans" ErrorMessage="Required Selection" ForeColor="#FF3300" ValidationGroup="transfer">*</asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DDLTransFrom" ErrorMessage="Required Selection" ForeColor="#FF3300" ValidationGroup="transfer" InitialValue="-1">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Transfer To :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLaccnTypeTrans" runat="server" Enabled="False">
+                                            <asp:DropDownList ID="DDLTransTo" runat="server" Enabled="False">
                                                 <asp:ListItem Value="-1">Account Type</asp:ListItem>
                                                 <asp:ListItem>Checking</asp:ListItem>
                                                 <asp:ListItem>Saving</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DDLaccnTypeTrans" ErrorMessage="Required Account Type" ForeColor="#FF3300" ValidationGroup="transfer">*</asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DDLTransTo" ErrorMessage="Required Account Type" ForeColor="#FF3300" ValidationGroup="transfer" InitialValue="-1">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -316,11 +320,14 @@
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                <address class="auto-style1">Contact: Karna Thapa
-            
+                  <address class="auto-style1">Contact: Karna Thapa<br/>
+                         Address: Euless, TX <br/>
+                         Email: kisanthapamagar@gmail.com
+                </address><br />
+            </td>
+            <td>&nbsp;</td>
         </tr>
     </table>
     </form>
-    
 </body>
 </html>

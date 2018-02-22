@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CsharpWebApp.Error_Handling_in_ASP.NET {
+namespace BankSoftware.errors {
     
     
-    public partial class error {
+    public partial class errorPage {
         
         /// <summary>
         /// form1 control.

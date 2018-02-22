@@ -39,14 +39,15 @@ namespace BankSoftware
         }
 
         protected void Application_Error(object sender, EventArgs e)
-        {
-            // Get the exception details and log it in the database or event viewer
-            Exception ex = Server.GetLastError();
-            // Clear the exception
-            Server.ClearError();
-            // Redirect user to Error page
-            Server.Transfer("~/errors/errorPage.aspx");
-            //Response.Redirect("~/errors/errorPage.aspx");
+        { 
+            //{
+        //    // Get the exception details and log it in the database or event viewer
+        //    Exception ex = Server.GetLastError();
+        //    // Clear the exception
+        //    Server.ClearError();
+        //    // Redirect user to Error page
+        //   Server.Transfer("~/errors/errorPage.aspx");
+        //    //Response.Redirect("~/errors/errorPage.aspx");
 
         }
 

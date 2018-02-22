@@ -1,0 +1,105 @@
+﻿<script src="~/Scripts/jquery-1.10.2.js"></script>
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Movie Rental</h2>
+<div>
+    A video rental shop/store is a physical retail business that rents home videos such as movies,
+    prerecorded TV shows, video game discs and other content. Typically, a rental shop conducts
+    business with customers under conditions and terms agreed upon in a rental agreement or contract,
+    which may be implied, explicit, or written. Many video rental stores also sell previously-viewed
+    movies and/or new, lots of unopened movies.
+
+    In the 1980s, video rental stores rented VHS and Beta tapes of movies, although most stores
+    dropped Beta tapes when VHS won the format war. In the 2000s, video rental stores began renting
+    DVDs, a digital format with higher resolution than VHS; DVDs eventually replaced videocassettes.
+    Millions and millions of video rentals are also offered in other business such as grocery stores,
+    drugstores or convenience stores.
+
+
+
+</div>
+<script>
+    //Get weather API from :https://openweathermap.org/current#parameter
+    $(function () {
+        getWeather();
+        $('#SubmitCity').click(function () {
+            return getWeather();
+        });
+    });
+
+    function getWeather() {
+
+        var city = $('#city').val();
+
+        if (city != '') {
+
+            $.ajax({
+
+                url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=Imperial" +
+                "&APPID=c10bb3bd22f90d636baa008b1529ee25",
+
+                type: "GET",
+                dataType: "jsonp",
+                success: function (data) {
+                    var widget = showResults(data);
+                    $("#showWeather").html(widget);
+                },
+                error: function () {
+                    $("#error").html("");
+                    $("#showWeather").html("");
+                    $("#showWeather").html("No such City Found!!");
+                }
+              
+
+            });
+        }
+        else {
+            $("#error").html("");
+            $("#showWeather").html("");
+            $('#error').html("<div>City Field can not be empty</div>");
+
+        }
+    }
+    //http://openweathermap.org/img/w/10d.png  link for weather icon
+    function showResults(data) {
+        return "<h3>Current Weather for: " + data.name + ", " + data.sys.country + "</h3>" +
+            "<p>Weather: " + data.weather[0].main + "</p>" +
+            "<p>Description: <img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'>" +
+            data.weather[0].description + "</p>" +
+            "<p>Temperature: " + data.main.temp + " &deg;F</p>" +
+            "<p>Pressure: " + data.main.pressure + "hpa" + "</p>" +
+            "<p>Humidity: " + data.main.humidity + "%" + "</p>" +
+            "<p>Min Temperature: " + data.main.temp_min + " &deg;F</p>" +
+            "<p>Max Temperature: " + data.main.temp_max + " &deg;F</p>" +
+            "<p>Wind Speed: " + data.wind.speed + "m/s</p>" +
+            "<p>Wind Direction: " + data.wind.deg + "&deg;</p>";
+
+
+    }
+</script>
+<h2>Current Weather</h2>
+<table>
+
+
+    <tr>
+        <td>
+            <input type="text" id="city" value="Euless"/>
+
+        </td>
+        <td>
+            <button id="SubmitCity">Search City</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="error"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="showWeather"></div>
+        </td>
+    </tr>
+</table>

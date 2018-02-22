@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using DALlayer;
@@ -13,10 +14,9 @@ namespace BusinessLayer
             UserCreatnRegister.createCashier(_id, _password, _name, _address, _phone, _email, _date);
         }
 
-        public static void createCustomer(string _id, string _password, string _name, string _address, string _phone, string _email,
-            string _accountID, string _accountType, DateTime _date, double _money, string _cashierID)
+        public static void createCustomer(string _id, string _password, string _name, string _address, string _phone, string _email)
         {
-            UserCreatnRegister.createCustomer(_id, _password, _name, _address, _phone, _email, _accountID, _accountType, _date,_money,_cashierID);
+            UserCreatnRegister.createCustomer(_id, _password, _name, _address, _phone, _email);
         }
         public static string GetCashierPasswords(string _usr)
         {
@@ -24,10 +24,11 @@ namespace BusinessLayer
             return pwd;
         }
 
-        public static DataTable  GetCustomerPasswords(string _usr)
+        public static List<string>  GetCustomerPasswords(string _usr)
         {
-            DataTable data = new DataTable();
-             data = UserCreatnRegister.GetCusPassword(_usr);
+            // DataTable data = new DataTable();
+            List<string> data = new List<string>();
+            data = UserCreatnRegister.GetCusPassword(_usr);
             return data;
         }
 

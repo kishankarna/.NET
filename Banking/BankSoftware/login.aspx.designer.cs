@@ -10,7 +10,7 @@
 namespace BankSoftware {
     
     
-    public partial class customerLogin {
+    public partial class login {
         
         /// <summary>
         /// form1 control.

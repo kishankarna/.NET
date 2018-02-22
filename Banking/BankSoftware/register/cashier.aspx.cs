@@ -4,7 +4,7 @@ using System.Web.UI;
 using BusinessLayer;
 using System.Web.Security;
 using System.Text;
-namespace BankSoftware
+namespace BankSoftware.register
 {
     public partial class cashier : System.Web.UI.Page
     {
