@@ -250,7 +250,6 @@ namespace BankSoftware.bank
             DDLWithdrawFrom.SelectedIndex = 0;
             CheckUsrWithdraw.Checked = false;
             }
-
         protected void btnSubmitTransfer_Click(object sender, EventArgs e)
         {
             string Usr = null;
