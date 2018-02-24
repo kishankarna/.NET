@@ -237,8 +237,7 @@ namespace BankSoftware.bank
                     lblMsg.Text = "Create " + DDLWithdrawFrom.SelectedItem.Text + "First";
                 }
 
-        }
-            
+        }          
             private void W1()
             {
             lblMsg.Text = "Withdraw Successfull!!"; lblMsg.ForeColor = Color.Green;
