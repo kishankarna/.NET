@@ -11,48 +11,53 @@ namespace BankSoftware.bank
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblUsr.Text = Session["name"].ToString();
+            lblUsr.Text ="Welcome "+ Session["name"].ToString();
+            
+
             try
             {
                 string CheckingAccountID = accounts.CheckingAccountIDs(Session["custid"].ToString());
                 Session["CheckingAccountID"] = CheckingAccountID;
-                lblAccounts.Text= "Checking Account <br/>";
-                lblAccounts.ForeColor = System.Drawing.Color.Green;
+                lblChk.Text= "Checking Account";
+                lblChk.ForeColor = System.Drawing.Color.Green;
             }
             catch (Exception ex)
 
             {
-                lblMsg.Text = "Checking Account is not created yet!! <br/>";
+                lblMsg.Text = "Checking Account is not created!! <br/>";
                 lblMsg.ForeColor = System.Drawing.Color.Blue;
             }
             try
             {
                 string SavingAccountID = accounts.SavingAccountIDs(Session["custid"].ToString());
                 Session["SavingAccountID"] = SavingAccountID;
-                lblAccounts.Text += "Saving Account <br/>";
-                lblAccounts.ForeColor = System.Drawing.Color.Green;
+                lblSav.Text = "Saving Account";
+                lblSav.ForeColor = System.Drawing.Color.Green;
             }
             catch (Exception ex)
 
             {
-                lblMsg.Text += "Saving Account is not created yet!! <br/>";
+                lblMsg.Text += "Saving Account is not created!! <br/>";
                 lblMsg.ForeColor = System.Drawing.Color.Blue;
             }
             try
             {
                 string CreditAccountID = accounts.CreditAccountIDs(Session["custid"].ToString());
                 Session["CreditAccountID"] = CreditAccountID;
-                lblAccounts.Text += "Credit Account <br/>";
-                lblAccounts.ForeColor = System.Drawing.Color.Green;
+                lblCredit.Text = "Credit Account";
+                lblCredit.ForeColor = System.Drawing.Color.Green;
             }
             catch (Exception ex)
 
             {
-                lblMsg.Text += "Credit Account is not created yet!! ";
+                lblMsg.Text += "Credit Account is not created!! ";
                 lblMsg.ForeColor = System.Drawing.Color.Blue;
             }
 
-             
+            if (lblChk.Text != "" && lblCredit.Text != "" && lblSav.Text != "")
+            {
+                HyperLink8.Visible = false;
+            }
 
         }
     }

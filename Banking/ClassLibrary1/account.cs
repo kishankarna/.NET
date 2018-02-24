@@ -140,5 +140,30 @@ namespace DALlayer
             }
         }
 
+        public static bool checkAccounts(string AccountID)
+        {
+            bool flag = false;
+            string cs = "server=NIKSON-PC\\SQLEXPRESS;user id=sa; password=1k2k3k4k5k6k;database=bank ";
+            string val = null;
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(cs))
+                {
+                    cn.Open();
+                    string query = "select AccountID from [accounts] where AccountID=@id";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@id", AccountID);
+                    val = cmd.ExecuteScalar().ToString();
+                }
+                if (val != null)
+                {
+                    flag = true;
+                    return flag;
+                }
+                return flag;
+            }
+            catch (System.NullReferenceException ex) { return flag; }
+        }
+
     }
 }

@@ -13,7 +13,11 @@ namespace BusinessLayer
             account.createAccounts(_accountID, _accountType, _moneyBalance, _preparer, _date, _custID);
         }
 
-        public static string CheckingAccountIDs(string _custID)
+        public static bool checkAccounts(string _AccountID)
+        {
+            return account.checkAccounts(_AccountID);
+        }
+            public static string CheckingAccountIDs(string _custID)
         {
            return account.CheckingAccountID(_custID);
 

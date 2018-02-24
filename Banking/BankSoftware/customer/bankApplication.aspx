@@ -34,25 +34,25 @@
         </div>
     <table class="auto-style4">
         <tr>
-            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style5">
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
+            </td>
             <td class="auto-style6">
                 <h2 class="auto-style1">Your Account Details</h2></td>
             <td>
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bank/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
                 &nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/customer/Home.aspx">Home</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/transaction.aspx">Transaction</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/customer/transaction.aspx">Transaction</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/bank/checking.aspx">Checking Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/customer/checking.aspx">Checking Account</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/bank/saving.aspx">Saving Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/customer/saving.aspx">Saving Account</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
             </td>
             <td class="auto-style6">
                 <br />
@@ -75,7 +75,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>&nbsp;<asp:Label ID="lblSaving0" runat="server" ForeColor="#CC9900">Saving Balance :</asp:Label>
+                        <td><asp:Label ID="lblSaving0" runat="server" ForeColor="#CC9900">Saving Balance :</asp:Label>
                         </td>
                         <td>
                             <asp:Label ID="lblSaving" runat="server" ForeColor="#CC9900"></asp:Label>

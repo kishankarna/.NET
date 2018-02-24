@@ -23,19 +23,14 @@
     <form id="form2" runat="server">
         <div><h2 class="auto-style1">United Local Bank</h2>
         </div>
-        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" Width="643px" OnFinishButtonClick="Wizard1_FinishButtonClick" CancelDestinationPageUrl="~/customerLogin.aspx" DisplayCancelButton="True" OnNextButtonClick="Wizard1_NextButtonClick" OnCancelButtonClick="Wizard1_CancelButtonClick" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" >
-            <HeaderStyle BackColor="#284E98" BorderColor="#EFF3FB" BorderStyle="Solid" BorderWidth="2px" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
-            <NavigationButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
-            <SideBarButtonStyle BackColor="#507CD1" Font-Names="Verdana" ForeColor="White" />
-            <SideBarStyle BackColor="#507CD1" Font-Size="0.9em" VerticalAlign="Top" />
+        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="1" Width="643px" OnFinishButtonClick="Wizard1_FinishButtonClick" CancelDestinationPageUrl="~/login.aspx" DisplayCancelButton="True" OnNextButtonClick="Wizard1_NextButtonClick" OnCancelButtonClick="Wizard1_CancelButtonClick" >
             <StepNavigationTemplate>
                 <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious" Text="Previous" />
                 <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Next" />
                 <asp:Button ID="CancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </StepNavigationTemplate>
-            <StepStyle Font-Size="0.8em" ForeColor="#333333" />
             <WizardSteps>
-                <asp:WizardStep runat="server" title="Customer Details">
+                <asp:WizardStep runat="server"  title="Customer Details">
                     <table class="auto-style2">
                         <tr>
                             <td>Name : </td>
@@ -87,12 +82,12 @@
                         </tr>
                     </table>
                 </asp:WizardStep>
-                <asp:WizardStep runat="server" title="Log in Credentials">
+                <asp:WizardStep runat="server"  title="Log in Credentials">
                     <table class="auto-style2">
                         <tr>
                             <td>User ID :</td>
                             <td>
-                                <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtID" runat="server" OnTextChanged="txtID_TextChanged"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtID" ErrorMessage="Required ID" ForeColor="#FF3300">*</asp:RequiredFieldValidator>

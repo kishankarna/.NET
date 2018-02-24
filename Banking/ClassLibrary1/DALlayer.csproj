@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="account.cs" />
     <Compile Include="checkingSQL.cs" />
+    <Compile Include="credit.cs" />
     <Compile Include="CRUD_Operation.cs" />
     <Compile Include="savingSQL.cs" />
     <Compile Include="UserCreatnRegister.cs" />

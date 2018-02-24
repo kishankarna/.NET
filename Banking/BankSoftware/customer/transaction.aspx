@@ -46,21 +46,15 @@
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
                 <h2 class="auto-style1">United Local Bank</h2></td>
-            <td>&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
-                <asp:Label ID="lblUsr" runat="server"></asp:Label>
+            <td>&nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/customer/Home.aspx">Home</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bank/transaction.aspx">Transaction</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/customer/BillPayment.aspx">Pay Bill</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/bank/checking.aspx">Checking Account</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/bank/saving.aspx">Saving Account</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
             </td>
             <td class="auto-style6">
                 <br />
@@ -69,7 +63,7 @@
                 <table class="auto-style4">
                     <tr>
                         <td class="auto-style7">
-                            <asp:Button ID="BtnDeposit" runat="server" Text="Deposit" OnClick="BtnDeposit_Click" />
+                            <asp:Button ID="BtnDeposit" runat="server" Text="Deposit" OnClick="BtnDeposit_Click" Width="120px" />
                         </td>
                         <td rowspan="3">
                                             <asp:Label ID="lblMsg" runat="server"></asp:Label>
@@ -82,7 +76,7 @@
                                     <tr>
                                         <td>User ID :</td>
                                         <td>
-                                            <asp:TextBox ID="DepositTxtCustID" runat="server" Enabled="False"></asp:TextBox>
+                                            <asp:TextBox ID="DepositTxtCustID" runat="server" Enabled="False" Width="130px"></asp:TextBox>
                                             <asp:CheckBox ID="CheckUsrDeposit" runat="server" Text="Are you Cashier?" />
                                         </td>
                                         <td>
@@ -92,7 +86,7 @@
                                     <tr>
                                         <td>Transaction Description :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLDepositDescrip" runat="server">
+                                            <asp:DropDownList ID="DDLDepositDescrip" runat="server" Width="130px">
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                                 <asp:ListItem>Teller</asp:ListItem>
                                                 <asp:ListItem Value="Self">Online / ATM</asp:ListItem>
@@ -105,7 +99,7 @@
                                     <tr>
                                         <td>Deposit To :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLDepositTo" runat="server">
+                                            <asp:DropDownList ID="DDLDepositTo" runat="server" Width="130px">
                                                 <asp:ListItem Value="-1">Select Account</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
@@ -116,7 +110,7 @@
                                     <tr>
                                         <td>Amount :</td>
                                         <td>
-                                            <asp:TextBox ID="txtAmountDeposit" runat="server" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="txtAmountDeposit" runat="server" TextMode="Number" Width="130px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtAmountDeposit" ErrorMessage="Required Amount" ForeColor="#FF3300" ValidationGroup="deposit">*</asp:RequiredFieldValidator>
@@ -150,7 +144,7 @@
                                     <tr>
                                         <td class="auto-style8">User ID : </td>
                                         <td class="auto-style8">
-                                            <asp:TextBox ID="WithdrawTxtCustID" runat="server" Enabled="False"></asp:TextBox>
+                                            <asp:TextBox ID="WithdrawTxtCustID" runat="server" Enabled="False" Width="130px"></asp:TextBox>
                                             <asp:CheckBox ID="CheckUsrWithdraw" runat="server" Text="Are you Cashier?" />
                                         </td>
                                         <td class="auto-style8">
@@ -160,7 +154,7 @@
                                     <tr>
                                         <td class="auto-style8">Transacation Description :</td>
                                         <td class="auto-style8">
-                                            <asp:DropDownList ID="DDLWithdrawDescrip" runat="server">
+                                            <asp:DropDownList ID="DDLWithdrawDescrip" runat="server" Width="130px">
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                                 <asp:ListItem>Teller</asp:ListItem>
                                                 <asp:ListItem Value="Self">Online / ATM</asp:ListItem>
@@ -173,8 +167,8 @@
                                     <tr>
                                         <td>Withdraw From :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLWithdrawFrom" runat="server">
-                                                <asp:ListItem Value="-1">Account Account</asp:ListItem>
+                                            <asp:DropDownList ID="DDLWithdrawFrom" runat="server" Width="130px">
+                                                <asp:ListItem Value="-1">Select Account</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -184,7 +178,7 @@
                                     <tr>
                                         <td>Amount :</td>
                                         <td>
-                                            <asp:TextBox ID="txtAmountWithdraw" runat="server" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="txtAmountWithdraw" runat="server" TextMode="Number" Width="130px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtAmountWithdraw" ErrorMessage="Required Amount" ForeColor="#FF3300" ValidationGroup="withdraw">*</asp:RequiredFieldValidator>
@@ -219,7 +213,7 @@
                                     <tr>
                                         <td>User ID :</td>
                                         <td>
-                                            <asp:TextBox ID="TransferTxtCustID" runat="server" Enabled="False"></asp:TextBox>
+                                            <asp:TextBox ID="TransferTxtCustID" runat="server" Enabled="False" Width="130px"></asp:TextBox>
                                             <asp:CheckBox ID="CheckUsrTrans" runat="server" Enabled="False" Text="Are you Cashier?" />
                                         </td>
                                         <td>
@@ -229,7 +223,7 @@
                                     <tr>
                                         <td>From :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLTransFrom" runat="server" Enabled="False">
+                                            <asp:DropDownList ID="DDLTransFrom" runat="server" Enabled="False" Width="130px">
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                                 <asp:ListItem>Teller</asp:ListItem>
                                                 <asp:ListItem Value="Self">Online / ATM</asp:ListItem>
@@ -242,7 +236,7 @@
                                     <tr>
                                         <td>Transfer To :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLTransTo" runat="server" Enabled="False">
+                                            <asp:DropDownList ID="DDLTransTo" runat="server" Enabled="False" Width="130px">
                                                 <asp:ListItem Value="-1">Account Type</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
@@ -253,7 +247,7 @@
                                     <tr>
                                         <td>Amount :</td>
                                         <td>
-                                            <asp:TextBox ID="txtAmountTransfer" runat="server" Enabled="False" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="txtAmountTransfer" runat="server" Enabled="False" TextMode="Number" Width="130px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtAmountTransfer" ErrorMessage="Required Amount" ForeColor="#FF3300" ValidationGroup="transfer">*</asp:RequiredFieldValidator>
@@ -287,12 +281,12 @@
                     </tr>
                     <tr>
                         <td class="auto-style7">
-                            <asp:Button ID="BtnWithdraw" runat="server" Text="Withdraw" OnClick="BtnWithdraw_Click" />
+                            <asp:Button ID="BtnWithdraw" runat="server" Text="Withdraw" OnClick="BtnWithdraw_Click" Width="120px" />
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style7">
-                            <asp:Button ID="BtnTransfer" runat="server" Text="Tranfer" OnClick="BtnTransfer_Click" />
+                            <asp:Button ID="BtnTransfer" runat="server" Text="Tranfer" OnClick="BtnTransfer_Click" Width="120px" />
                         </td>
                     </tr>
                 </table>
@@ -313,8 +307,7 @@
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                  <address class="auto-style1">Contact: Karna Thapa<br/>
-                         Address: Euless, TX <br/>
+                  <address class="auto-style1">Contact: Karna Thapa                   Address: Euless, TX <br/>
                          Email: kisanthapamagar@gmail.com
                 </address><br />
             </td>

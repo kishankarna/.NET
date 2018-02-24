@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="checking.aspx.cs" Inherits="BankSoftware.bank.checking" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="saving.aspx.cs" Inherits="BankSoftware.bank.saving" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +12,6 @@
         }
         .auto-style4 {
             width: 100%;
-            
         }
         .auto-style5 {
             width: 146px;
@@ -21,8 +20,8 @@
             width: 814px;
         }
         .auto-style1 {
-            text-align: center;
              background-color:cornflowerblue;
+            text-align: center;
         }
         .auto-style7 {
             height: 22px;
@@ -40,25 +39,25 @@
            
         </div>
         </div>
-    <table class="auto-style4" >
+    <table class="auto-style4">
         <tr>
-            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style5">
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
+            </td>
             <td class="auto-style6">
                 <h2 class="auto-style1">United Local Bank</h2></td>
             <td>
-                <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/bank/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
                 &nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/customer/Home.aspx">Home</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/transaction.aspx">Transaction</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/customer/transaction.aspx">Transaction</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/bank/saving.aspx">Saving Account</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/customer/checking.aspx">Checking Account</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
             </td>
             <td class="auto-style6">
                 <br />
@@ -69,21 +68,19 @@
                 <br />
                 <br />
                 <br />
-                Checking
-                Account Activities:<asp:Label ID="lblMsg" runat="server"></asp:Label>
-                <br />
+                Saving Account Activities:<asp:Label ID="lblMsg" runat="server"></asp:Label>
                 <table class="auto-style4" style="background-color:aquamarine">
                     <tr>
-                        <td class="auto-style8">
+                        <td class="auto-style8" >
                             <asp:Label ID="Label1" runat="server" ForeColor="#00CCFF" Text="Available Balance : $"></asp:Label>
-&nbsp;<asp:Label ID="lblCheck" runat="server" ForeColor="#0099FF"></asp:Label>
+&nbsp;<asp:Label ID="lblCheck" runat="server" ForeColor="#00CCFF"></asp:Label>
                         </td>
                         <td class="auto-style7">
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="525px">
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                                 <AlternatingRowStyle BackColor="White" />
                                 <EditRowStyle BackColor="#2461BF" />
                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

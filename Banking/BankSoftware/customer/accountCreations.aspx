@@ -53,16 +53,11 @@
             </td>
             <td class="auto-style6">
                 <br />
-                <asp:Wizard ID="Wizard1" runat="server" OnFinishButtonClick="Wizard1_FinishButtonClick" ActiveStepIndex="0" CancelDestinationPageUrl="~/bank/bankApplication.aspx" DisplayCancelButton="True" Height="151px" OnCancelButtonClick="Wizard1_CancelButtonClick" Width="532px" OnNextButtonClick="Wizard1_NextButtonClick" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
-                    <HeaderStyle BackColor="#284E98" BorderColor="#EFF3FB" BorderStyle="Solid" BorderWidth="2px" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
-                    <NavigationButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
-                    <SideBarButtonStyle BackColor="#507CD1" Font-Names="Verdana" ForeColor="White" />
-                    <SideBarStyle BackColor="#507CD1" Font-Size="0.9em" VerticalAlign="Top" />
+                <asp:Wizard ID="Wizard1" runat="server" OnFinishButtonClick="Wizard1_FinishButtonClick" ActiveStepIndex="0" CancelDestinationPageUrl="~/customer/bankApplication.aspx" DisplayCancelButton="True" Height="151px" OnCancelButtonClick="Wizard1_CancelButtonClick" Width="532px" OnNextButtonClick="Wizard1_NextButtonClick">
                     <StepNavigationTemplate>
                         <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious" Text="Previous" />
                         <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Next" />
                     </StepNavigationTemplate>
-                    <StepStyle Font-Size="0.8em" ForeColor="#333333" />
                     <WizardSteps>
                         <asp:WizardStep runat="server" title="Account Information">
                             <table class="auto-style4">
@@ -136,6 +131,7 @@
                                     <td>Amount : </td>
                                     <td>
                                         <asp:Label ID="lblAmount" runat="server"></asp:Label>
+                                        <asp:Label ID="lblCredit" runat="server"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
@@ -162,7 +158,7 @@
                 </asp:Wizard>
                 <asp:Label ID="lblMsg" runat="server"></asp:Label>
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/customer/Home.aspx">Home</asp:HyperLink>
                 <br />
                 <br />
                 <br />

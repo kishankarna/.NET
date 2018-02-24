@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="saving.aspx.cs" Inherits="BankSoftware.bank.saving" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Credit.aspx.cs" Inherits="BankSoftware.bank.Credit" %>
 
 <!DOCTYPE html>
 
@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
+
 
         .auto-style2 {
             text-align: right;
@@ -23,17 +24,19 @@
              background-color:cornflowerblue;
             text-align: center;
         }
-        .auto-style7 {
-            height: 22px;
-        }
         .auto-style8 {
             height: 22px;
             text-align: right;
         }
-    </style>
+        .auto-style7 {
+            height: 22px;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
+        </div>
         <div class="auto-style2">
         <div>
            
@@ -41,23 +44,21 @@
         </div>
     <table class="auto-style4">
         <tr>
-            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style5">
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
+            </td>
             <td class="auto-style6">
                 <h2 class="auto-style1">United Local Bank</h2></td>
             <td>
-                <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/bank/accountSettings.aspx">Profile &amp; Settings</asp:HyperLink>
                 &nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/bank/Home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/customer/Home.aspx">Home</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/bank/transaction.aspx">Transaction</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/customer/transaction.aspx">Transaction</asp:HyperLink>
                 <br />
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/bank/checking.aspx">Checking Account</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
             </td>
             <td class="auto-style6">
                 <br />
@@ -68,11 +69,13 @@
                 <br />
                 <br />
                 <br />
-                Saving Account Activities:<asp:Label ID="lblMsg" runat="server"></asp:Label>
+                Credit Account Activities:
+                <asp:Label ID="lbl" runat="server"></asp:Label>
+&nbsp; <asp:Label ID="lblMsg" runat="server"></asp:Label>
                 <table class="auto-style4" style="background-color:aquamarine">
                     <tr>
                         <td class="auto-style8" >
-                            <asp:Label ID="Label1" runat="server" ForeColor="#00CCFF" Text="Available Balance : $"></asp:Label>
+                            <asp:Label ID="Label1" runat="server" ForeColor="#00CCFF" Text="Available Credit Balance : $"></asp:Label>
 &nbsp;<asp:Label ID="lblCheck" runat="server" ForeColor="#00CCFF"></asp:Label>
                         </td>
                         <td class="auto-style7">
@@ -80,7 +83,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="525px">
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                                 <AlternatingRowStyle BackColor="White" />
                                 <EditRowStyle BackColor="#2461BF" />
                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -128,5 +131,5 @@
         </tr>
     </table>
     </form>
-    </body>
+</body>
 </html>

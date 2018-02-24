@@ -40,7 +40,7 @@
         <tr>
             <td>
                 <asp:Button ID="btnDisplay" runat="server" OnClick="btnDisplay_Click" Text="Display" />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/accountSettings.aspx">Go Back</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/customer/accountSettings.aspx">Go Back</asp:HyperLink>
             </td>
             <td>
                 <asp:Label ID="lblMsg" runat="server"></asp:Label>

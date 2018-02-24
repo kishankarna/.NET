@@ -10,7 +10,7 @@
 namespace BankSoftware.bank {
     
     
-    public partial class checking {
+    public partial class bankApplication {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,13 @@ namespace BankSoftware.bank {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// HyperLink8 control.
+        /// HyperLink2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
         
         /// <summary>
         /// lblUsr control.
@@ -40,13 +40,13 @@ namespace BankSoftware.bank {
         protected global::System.Web.UI.WebControls.Label lblUsr;
         
         /// <summary>
-        /// HyperLink7 control.
+        /// HyperLink9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink7;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink9;
         
         /// <summary>
         /// HyperLink1 control.
@@ -58,6 +58,15 @@ namespace BankSoftware.bank {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
+        /// HyperLink5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
+        
+        /// <summary>
         /// HyperLink6 control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace BankSoftware.bank {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink6;
-        
-        /// <summary>
-        /// HyperLink2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
         
         /// <summary>
         /// lblMsg control.
@@ -85,13 +85,13 @@ namespace BankSoftware.bank {
         protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
-        /// Label1 control.
+        /// lblCheck0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblCheck0;
         
         /// <summary>
         /// lblCheck control.
@@ -103,13 +103,40 @@ namespace BankSoftware.bank {
         protected global::System.Web.UI.WebControls.Label lblCheck;
         
         /// <summary>
-        /// GridView1 control.
+        /// lblSaving0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label lblSaving0;
+        
+        /// <summary>
+        /// lblSaving control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSaving;
+        
+        /// <summary>
+        /// lblCredit0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCredit0;
+        
+        /// <summary>
+        /// lblCredit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCredit;
         
         /// <summary>
         /// AdRotator3 control.

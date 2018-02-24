@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Data;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 //using System.Security.Cryptography;
 using System.Web.Security;
-using System.Configuration;
-using System.Text;
 using System.Collections.Generic;
 
 namespace BankSoftware
@@ -51,7 +46,7 @@ namespace BankSoftware
                         name = data[1];
                     }
 
-                    if (pass == encryptPwd)
+                    if (pass == encryptPwd && pass!=string.Empty)
 
                     {
                         Session["name"] = name;

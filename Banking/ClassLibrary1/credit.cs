@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 
-namespace DALlayer
+namespace DalLayer
 {
-    public class savingSQL
+    public class credit
     {
         public static DataTable GetTransaction(string accountID)
         {
@@ -20,10 +19,6 @@ namespace DALlayer
                 cmd.Parameters.AddWithValue("@id", accountID);
                 data.Load(cmd.ExecuteReader());
 
-                //SqlDataAdapter dr = new SqlDataAdapter(cmd);
-
-                // dr.Fill(data);
-                //cn.Close();
                 return data;
             }
 

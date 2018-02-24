@@ -21,11 +21,11 @@ namespace BusinessLayer
 
         public static string GetCashierPasswords(string _usr)
         {
-            string pwd= UserCreatnRegister.GetCashPassword(_usr);
+            string pwd = UserCreatnRegister.GetCashPassword(_usr);
             return pwd;
         }
 
-        public static List<string>  GetCustomerPasswords(string _usr)
+        public static List<string> GetCustomerPasswords(string _usr)
         {
             // DataTable data = new DataTable();
             List<string> data = new List<string>();
@@ -39,5 +39,19 @@ namespace BusinessLayer
 
         }
 
+        public static void EditCustomer(string _CustID, string _address, string _phone, string _email)
+        {
+            UserCreatnRegister.EditCustomer(_CustID, _address, _phone, _email);
+        }
+
+        public static List<string> GetCustomers(string _CustID)
+        {
+            return UserCreatnRegister.GetCustomer(_CustID);
+        }
+
+        public static bool checkCustomer(string _CustID)
+        {
+            return UserCreatnRegister.checkCustomer(_CustID);
+        }
     }
 }
