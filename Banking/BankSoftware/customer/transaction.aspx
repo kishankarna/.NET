@@ -223,10 +223,8 @@
                                     <tr>
                                         <td>From :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLTransFrom" runat="server" Enabled="False" Width="130px">
-                                                <asp:ListItem Value="-1">Select</asp:ListItem>
-                                                <asp:ListItem>Teller</asp:ListItem>
-                                                <asp:ListItem Value="Self">Online / ATM</asp:ListItem>
+                                            <asp:DropDownList ID="DDLTransFrom" runat="server" Width="130px">
+                                                <asp:ListItem Value="-1">Select Account</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -236,8 +234,8 @@
                                     <tr>
                                         <td>Transfer To :</td>
                                         <td>
-                                            <asp:DropDownList ID="DDLTransTo" runat="server" Enabled="False" Width="130px">
-                                                <asp:ListItem Value="-1">Account Type</asp:ListItem>
+                                            <asp:DropDownList ID="DDLTransTo" runat="server" Width="130px">
+                                                <asp:ListItem Value="-1">Select Account</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -247,7 +245,7 @@
                                     <tr>
                                         <td>Amount :</td>
                                         <td>
-                                            <asp:TextBox ID="txtAmountTransfer" runat="server" Enabled="False" TextMode="Number" Width="130px"></asp:TextBox>
+                                            <asp:TextBox ID="txtAmountTransfer" runat="server" TextMode="Number" Width="130px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtAmountTransfer" ErrorMessage="Required Amount" ForeColor="#FF3300" ValidationGroup="transfer">*</asp:RequiredFieldValidator>
@@ -265,8 +263,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                            <asp:Label ID="tranMsg" runat="server" ForeColor="#CC0000" Text="Not maintained as of now"></asp:Label>
-                                        </td>
+                                            &nbsp;</td>
                                         <td>
                                             <asp:ValidationSummary ID="ValidationSummary3" runat="server" ForeColor="#FF3300" ValidationGroup="transfer" />
                                         </td>
@@ -307,7 +304,7 @@
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style6">
-                  <address class="auto-style1">Contact: Karna Thapa                   Address: Euless, TX <br/>
+                  <address class="auto-style1">Contact: Karna Thapa                   Address: Euless, TX             Address: Euless, TX <br/>
                          Email: kisanthapamagar@gmail.com
                 </address><br />
             </td>

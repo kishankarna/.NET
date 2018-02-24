@@ -30,19 +30,15 @@ namespace BankSoftware.bank
                     DDLDepositTo.Items.Add("Checking");
                     DDLWithdrawFrom.Items.Add("Checking");
                     DDLTransTo.Items.Add("Checking");
+                    DDLTransFrom.Items.Add("Checking");
                 }
                 if (Session["SavingAccountID"] != null)
                 {
                     DDLDepositTo.Items.Add("Saving");
                     DDLWithdrawFrom.Items.Add("Saving");
                     DDLTransTo.Items.Add("Saving");
+                    DDLTransFrom.Items.Add("Saving");
                 }
-                //if (Session["CreditAccountID"] != null)
-                //{
-                //    DDLDepositTo.Items.Add("Credit");
-                //    DDLWithdrawFrom.Items.Add("Credit");
-                //    DDLTransTo.Items.Add("Credit");
-                //}   
             }
         }
         protected void BtnDeposit_Click(object sender, EventArgs e)
@@ -148,21 +144,6 @@ namespace BankSoftware.bank
                     lblMsg.Text = "Create " + DDLDepositTo.SelectedItem.Text + "First";
                 }
                 
-                //for credit
-                if (DDLDepositTo.SelectedIndex==3 && (Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null))
-                {
-                    bal = accounts.GetAccountBalance(Session["CreditAccountID"].ToString());
-                    double newBal = bal + Convert.ToDouble(txtAmountDeposit.Text);
-                    accounts.Deposits(Session["CreditAccountID"].ToString(), newBal);          //update accountSummary table
-                    CRUD_Operations.Deposits(Convert.ToDateTime(lblDepDate.Text), usrID, DDLDepositTo.Text + " Deposit",         //recording to transaction table
-                         Convert.ToDouble(txtAmountDeposit.Text), Usr, DDLDepositDescrip.Text, Session["CreditAccountID"].ToString(), newBal);
-                    D1();
-                    return;
-                }
-                else
-                {
-                    lblMsg.Text = "Create " + DDLDepositTo.SelectedItem.Text + "First";
-                }           
         }
 
         private void D1() {
@@ -255,31 +236,7 @@ namespace BankSoftware.bank
                 {
                     lblMsg.Text = "Create " + DDLWithdrawFrom.SelectedItem.Text + "First";
                 }
-                //for credit
-                if (DDLWithdrawFrom.SelectedIndex == 3 && (Session["CheckingAccountID"] != null || Session["SavingAccountID"] != null || Session["CreditAccountID"] != null))
-                {
-                    bal = accounts.GetAccountBalance(Session["CreditAccountID"].ToString());                     //getting balance from account table
-                                                                                                                 // bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());      //getting balance from account table
-                    if (bal > amount)
-                    {
-                        double newBal = bal - Convert.ToDouble(txtAmountWithdraw.Text);
-                        accounts.Deposits(Session["CreditAccountID"].ToString(), newBal);          //update accountSummary table
-                        CRUD_Operations.Deposits(Convert.ToDateTime(lblDateW.Text), usrID, DDLWithdrawFrom.Text + " Withdraw",         //recording to transaction table
-                             Convert.ToDouble("-" + txtAmountWithdraw.Text), Usr, DDLWithdrawDescrip.Text, Session["CreditAccountID"].ToString(), newBal);
-                        W1();
-                        return;
-                    }
-                    else
-                    {
-                        lblMsg.Text = "Amount not succifienct!!"; lblMsg.ForeColor = Color.Red; txtAmountWithdraw.Focus();
-                    }
 
-                }
-                else
-                {
-                    lblMsg.Text = "Create " + DDLWithdrawFrom.SelectedItem.Text + "First";
-                }
-               
         }
             
             private void W1()
@@ -297,12 +254,80 @@ namespace BankSoftware.bank
 
         protected void btnSubmitTransfer_Click(object sender, EventArgs e)
         {
+            string Usr = null;
+            if (CheckUsrDeposit.Checked)
+            {
+                Usr = "Cashier";
+            }
+            else
+            {
+                Usr = "Customer";
+            }
+            string usrID = Session["custid"].ToString();
+            double bal = 0;
+            //From Checking to Saving
+            if (DDLTransFrom.SelectedIndex == 1 && DDLTransTo.SelectedIndex==2 && (Session["CheckingAccountID"] != null && Session["SavingAccountID"] != null))
+            {
+                //saving addition
+                bal = accounts.GetAccountBalance(Session["SavingAccountID"].ToString());      //getting balance from account table
+                double newBal = bal + Convert.ToDouble(txtAmountTransfer.Text);
+                accounts.Deposits(Session["SavingAccountID"].ToString(), newBal);          //update accountSummary table
+                CRUD_Operations.Deposits(Convert.ToDateTime(lblDateT.Text), usrID, "Received from checking",         //recording to transaction table
+                     Convert.ToDouble(txtAmountTransfer.Text), Usr, "Online Transfer", Session["SavingAccountID"].ToString(), newBal);
+
+                //checking deduction
+
+                bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());      //getting balance from account table
+                double newChkBal = bal - Convert.ToDouble(txtAmountTransfer.Text);
+                accounts.Deposits(Session["CheckingAccountID"].ToString(), newChkBal);
+                CRUD_Operations.Deposits(Convert.ToDateTime(lblDateT.Text), usrID, "Transfered to",         //recording to transaction table
+                    Convert.ToDouble(txtAmountTransfer.Text), Usr, "Online Transfer", Session["CheckingAccountID"].ToString(), newChkBal);
+
+                T1();
+                return;
+            }
+            else
+            {
+                lblMsg.Text = "You have choosed same Account!! Please Select Different Account!!";
+                lblMsg.ForeColor = Color.Red;
+            }
+            //for saving to checking
+            if (DDLTransFrom.SelectedIndex == 2 && DDLTransTo.SelectedIndex==1 && (Session["CheckingAccountID"] != null && Session["SavingAccountID"] != null))
+            {
+                //checking addition
+                bal = accounts.GetAccountBalance(Session["CheckingAccountID"].ToString());
+                double newBal = bal + Convert.ToDouble(txtAmountTransfer.Text);
+                accounts.Deposits(Session["CheckingAccountID"].ToString(), newBal);          //update accountSummary table
+                CRUD_Operations.Deposits(Convert.ToDateTime(lblDateT.Text), usrID, "Received from Saving",         //recording to transaction table
+                     Convert.ToDouble(txtAmountTransfer.Text), Usr, "Online Transfer", Session["CheckingAccountID"].ToString(), newBal);
+
+                //saving deduction
+
+                bal = accounts.GetAccountBalance(Session["SavingAccountID"].ToString());      //getting balance from account table
+                double newSvBal = bal - Convert.ToDouble(txtAmountTransfer.Text);
+                accounts.Deposits(Session["SavingAccountID"].ToString(), newSvBal);
+                CRUD_Operations.Deposits(Convert.ToDateTime(lblDateT.Text), usrID, "Transfered to",         //recording to transaction table
+                    Convert.ToDouble(txtAmountTransfer.Text), Usr, "Online Transfer", Session["SavingAccountID"].ToString(), newSvBal);
+
+                T1();
+                return;
+            }
+            else
+            {
+                lblMsg.Text = "You have choosed same Account!! Please Select Different Account!!";
+                lblMsg.ForeColor = Color.Red;
+            }
+        }
+        private void T1() {
+            lblMsg.Text = "Transfer Successfull!!"; lblMsg.ForeColor = Color.Green;
+            txtAmountTransfer.Text = "";
+            DDLTransFrom.SelectedIndex = 0;
+            DDLTransTo.SelectedIndex = 0;
             PanelTransfer.Visible = false;
             BtnDeposit.Visible = true;
             BtnWithdraw.Visible = true;
             BtnTransfer.Visible = true;
+
         }
-
-
     }
 }
