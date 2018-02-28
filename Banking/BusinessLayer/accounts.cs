@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DALlayer;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BusinessLayer
 {
@@ -51,5 +52,10 @@ namespace BusinessLayer
             double balance = account.GetBalance(_accountID);
             return balance;
         }
+        public static DataTable StatementsByMonth(string _Month, string _accountIDType)
+        {
+            return account.StatementsByMonth(_Month, _accountIDType);
+        }
+
     }
 }

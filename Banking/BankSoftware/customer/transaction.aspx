@@ -2,9 +2,15 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" >
 <head runat="server">
     <title></title>
+    <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../scripts/jquery-3.3.1.js"></script>
+
     <style type="text/css">
 
         .auto-style2 {
@@ -23,18 +29,46 @@
             text-align: center;
              background-color:cornflowerblue;
         }
-        .auto-style3 {
-            margin-left: 0px;
-        }
         .auto-style7 {
             width: 98px;
         }
         .auto-style8 {
             height: 32px;
         }
-        </style>
+         .customNav {
+        background-color:dodgerblue;
+        }
+        .customUl {
+        color:black;
+        }
+        .nav.navbar-nav.navbar-right li a {
+            color: blue;
+        }
+        .nav.navbar-nav li a {
+            color: blue;
+        }  
+    </style>
 </head>
 <body>
+      <nav class="navbar navbar-inverse customNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">United Local Bank</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Home.aspx">Home</a></li>
+                <li><a href="BillPayment.aspx">Bill Payment</a></li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              
+                <li><a href="../logout.aspx">&nbsp;
+            &nbsp;<span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <asp:Label ID="lblUsr" runat="server" ForeColor="Black"></asp:Label>
     <form id="form2" runat="server">
         <div class="auto-style2">
         <div>
@@ -44,10 +78,8 @@
     <table class="auto-style4">
         <tr>
             <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style6">
-                <h2 class="auto-style1">United Local Bank</h2></td>
-            <td>&nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
-            </td>
+            
+            <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style5">
@@ -63,13 +95,15 @@
                 <table class="auto-style4">
                     <tr>
                         <td class="auto-style7">
-                            <asp:Button ID="BtnDeposit" runat="server" Text="Deposit" OnClick="BtnDeposit_Click" Width="120px" />
+                            <asp:Button ID="BtnDeposit" runat="server" Text="Deposit" OnClick="BtnDeposit_Click" Width="120px" class="btn btn-primary" />
                         </td>
                         <td rowspan="3">
                                             <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                         <br />
-                            <asp:Panel ID="PanelDeposit" runat="server" CssClass="auto-style3" style="background-color:aquamarine">
-                                <br />
+                            <asp:Panel ID="PanelDeposit" runat="server" class="panel panel-info">
+                                 <div class="panel-heading">Deposit</div>
+                                <div class="panel-body">
+                                
                                 <asp:Label ID="lblDepDate" runat="server"></asp:Label>
                                 <br />
                                 <table class="auto-style4" title="Deposit">
@@ -118,9 +152,9 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="btnSubmitDeposit" runat="server" Text="Submit" OnClick="btnSubmitDeposit_Click" ValidationGroup="deposit" />
+                                            <asp:Button ID="btnSubmitDeposit" runat="server" Text="Submit" OnClick="btnSubmitDeposit_Click" ValidationGroup="deposit" class="btn btn-info" />
                                             &nbsp;&nbsp;
-                                            <asp:Button ID="btnCancelDeposit" runat="server" Text="Cancel" OnClick="btnCancelDeposit_Click" />
+                                            <asp:Button ID="btnCancelDeposit" runat="server" Text="Cancel" OnClick="btnCancelDeposit_Click" class="btn btn-info" />
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -135,11 +169,13 @@
                                 </table>
                                 <br />
                                 <br />
+                                    </div>
                             </asp:Panel>
                             <br />
-                            <asp:Panel ID="PanelWithdraw" runat="server" style="background-color:aquamarine">
+                            <asp:Panel ID="PanelWithdraw" runat="server" class="panel panel-info">
                                 <asp:Label ID="lblDateW" runat="server"></asp:Label>
-                                <br />
+                                  <div class="panel-heading">Withdraw</div>
+                                <div class="panel-body">
                                 <table class="auto-style4">
                                     <tr>
                                         <td class="auto-style8">User ID : </td>
@@ -186,9 +222,9 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="btnSubmitWithdraw" runat="server" Text="Submit" ValidationGroup="withdraw" OnClick="btnSubmitWithdraw_Click" />
+                                            <asp:Button ID="btnSubmitWithdraw" runat="server" Text="Submit" ValidationGroup="withdraw" OnClick="btnSubmitWithdraw_Click" class="btn btn-info"/>
                                             &nbsp;&nbsp;
-                                            <asp:Button ID="btnCancelWithdraw" runat="server" Text="Cancel" OnClick="btnCancelWithdraw_Click" />
+                                            <asp:Button ID="btnCancelWithdraw" runat="server" Text="Cancel" OnClick="btnCancelWithdraw_Click"  class="btn btn-info"/>
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -204,11 +240,13 @@
                                 <br />
                                 <br />
                                 <br />
+                                    </div>
                             </asp:Panel>
                             <br />
-                            <asp:Panel ID="PanelTransfer" runat="server" style="background-color:aquamarine">
+                            <asp:Panel ID="PanelTransfer" runat="server"  class="panel panel-info">
                                 <asp:Label ID="lblDateT" runat="server"></asp:Label>
-                                <br />
+                                 <div class="panel-heading">Transfer</div>
+                                <div class="panel-body">
                                 <table class="auto-style4">
                                     <tr>
                                         <td>User ID :</td>
@@ -253,9 +291,9 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="btnSubmitTransfer" runat="server"  Text="Submit" ValidationGroup="transfer" OnClick="btnSubmitTransfer_Click" />
+                                            <asp:Button ID="btnSubmitTransfer" runat="server"  Text="Submit" ValidationGroup="transfer" OnClick="btnSubmitTransfer_Click" class="btn btn-info" />
                                             &nbsp;&nbsp;
-                                            <asp:Button ID="btnCancelTransfer" runat="server" Text="Cancel" OnClick="btnCancelTransfer_Click" />
+                                            <asp:Button ID="btnCancelTransfer" runat="server" Text="Cancel" OnClick="btnCancelTransfer_Click" class="btn btn-info" />
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -273,17 +311,18 @@
                                 <br />
                                 <br />
                                 <br />
+                                    </div>
                             </asp:Panel>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style7">
-                            <asp:Button ID="BtnWithdraw" runat="server" Text="Withdraw" OnClick="BtnWithdraw_Click" Width="120px" />
+                            <asp:Button ID="BtnWithdraw" runat="server" Text="Withdraw" OnClick="BtnWithdraw_Click" Width="120px" class="btn btn-primary"/>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style7">
-                            <asp:Button ID="BtnTransfer" runat="server" Text="Tranfer" OnClick="BtnTransfer_Click" Width="120px" />
+                            <asp:Button ID="BtnTransfer" runat="server" Text="Tranfer" OnClick="BtnTransfer_Click" Width="120px" class="btn btn-primary"/>
                         </td>
                     </tr>
                 </table>
@@ -301,16 +340,9 @@
             </td>
             <td>&nbsp;</td>
         </tr>
-        <tr>
-            <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style6">
-                  <address class="auto-style1">Contact: Karna Thapa                   Address: Euless, TX             Address: Euless, TX <br/>
-                         Email: kisanthapamagar@gmail.com
-                </address><br />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
+   
     </table>
     </form>
+        </div>
 </body>
 </html>

@@ -2,9 +2,15 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" >
 <head runat="server">
     <title></title>
+    <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../scripts/jquery-3.3.1.js"></script>
+
     <style type="text/css">
 
         .auto-style2 {
@@ -31,9 +37,38 @@
             height: 22px;
             text-align: right;
         }
+         .customNav {
+        background-color:dodgerblue;
+        }
+        .customUl {
+        color:black;
+        }
+        .nav.navbar-nav.navbar-right li a {
+            color: blue;
+        }
+        .nav.navbar-nav li a {
+            color: blue;
+        }  
     </style>
 </head>
 <body>
+      <nav class="navbar navbar-inverse customNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">United Local Bank</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Home.aspx">Home</a></li>
+                <li><a href="transaction.aspx">Transaction</a></li>
+               <li><a href="saving.aspx">Saving Account</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+               
+                <li><a href="../logout.aspx"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
     <form id="form1" runat="server">
         <div class="auto-style2">
         <div>
@@ -43,10 +78,8 @@
     <table class="auto-style4" >
         <tr>
             <td class="auto-style5">
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/logout.aspx">LogOut</asp:HyperLink>
-            </td>
-            <td class="auto-style6">
-                <h2 class="auto-style1">United Local Bank</h2></td>
+                &nbsp;</td>
+         
             <td>
                 &nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
@@ -72,7 +105,7 @@
                 Checking
                 Account Activities:<asp:Label ID="lblMsg" runat="server"></asp:Label>
                 <br />
-                <table class="auto-style4" style="background-color:aquamarine">
+                <table class="table">
                     <tr>
                         <td class="auto-style8">
                             <asp:Label ID="Label1" runat="server" ForeColor="#00CCFF" Text="Available Balance : $"></asp:Label>
@@ -83,7 +116,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" BorderStyle="Outset" Caption="Account Summary">
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" BorderStyle="None" Caption="Account Summary">
                                 <AlternatingRowStyle BackColor="White" />
                                 <EditRowStyle BackColor="#2461BF" />
                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -120,16 +153,10 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style6">
-                <address class="auto-style1">Contact: Karna Thapa<br/>
-                         Address: Euless, TX <br/>
-                         Email: kisanthapamagar@gmail.com
-                </address><br />
-            </td>
-            <td>&nbsp;</td>
+            
         </tr>
     </table>
     </form>
+        </div>
     </body>
 </html>

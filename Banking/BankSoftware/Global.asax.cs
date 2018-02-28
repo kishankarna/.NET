@@ -42,11 +42,11 @@ namespace BankSoftware
         {
             
                 // Get the exception details and log it in the database or event viewer
-               // Exception ex = Server.GetLastError();
+                Exception ex = Server.GetLastError();
                 // Clear the exception
-               // Server.ClearError();
+               Server.ClearError();
                 // Redirect user to Error page
-               //  Server.Transfer("~/errors/errorPage.aspx");
+                Server.Transfer("~/errors/errorPage.aspx");
                 //Response.Redirect("~/errors/errorPage.aspx");
 
         }

@@ -2,9 +2,15 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" >
 <head runat="server">
     <title></title>
+    <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../scripts/jquery-3.3.1.js"></script>
+
     <style type="text/css">
 
 
@@ -21,27 +27,45 @@
         .auto-style6 {
             width: 814px;
         }
-        .auto-style1 {
-            text-align: center;
-             background-color:cornflowerblue;
-        }
-        .auto-style7 {
-            height: 22px;
-        }
         .auto-style8 {
             width: 146px;
-            height: 49px;
-        }
-        .auto-style9 {
-            width: 814px;
             height: 49px;
         }
         .auto-style10 {
             height: 49px;
         }
-        </style>
+         .customNav {
+        background-color:dodgerblue;
+        }
+        .customUl {
+        color:black;
+        }
+        .nav.navbar-nav.navbar-right li a {
+            color: blue;
+        }
+        .nav.navbar-nav li a {
+            color: blue;
+        }  
+    </style>
 </head>
 <body>
+      <nav class="navbar navbar-inverse customNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">United Local Bank</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Home.aspx">Home</a></li>
+                <li><a href="bankApplication">Summary</a></li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+               
+                <li><a href="../logout.aspx"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
     <form id="form1" runat="server">
         <div>
         </div>
@@ -53,8 +77,7 @@
     <table class="auto-style4" >
         <tr>
             <td class="auto-style8"></td>
-            <td class="auto-style9">
-                <h2 class="auto-style1">United Local Bank</h2></td>
+           
             <td class="auto-style10">
                 &nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
@@ -78,10 +101,11 @@
                 &nbsp;<br />
                 <table class="auto-style4" style="background-color:aquamarine">
                     <tr>
-               <td class="auto-style7">
-                            <asp:Panel ID="PanelTransfer" runat="server" style="background-color:aquamarine">
-                                <br />
-                                <table class="auto-style4">
+               <td>
+                            <asp:Panel ID="PanelTransfer" runat="server" class="panel panel-info">
+                                    <div class="panel-heading">Payments</div>
+                                <div class="panel-body">
+                                <table>
                                     <tr>
                                         <td>User ID :</td>
                                         <td>
@@ -123,9 +147,9 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="btnSubmit" runat="server"  Text="Submit" ValidationGroup="transfer" OnClick="btnSubmit_Click" style="height: 26px" />
+                                            <asp:Button ID="btnSubmit" runat="server"  Text="Submit" ValidationGroup="transfer" OnClick="btnSubmit_Click" class="btn btn-primary"/>
                                             &nbsp;&nbsp;
-                                            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+                                            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" class="btn btn-primary"/>
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -144,6 +168,7 @@
                                 <br />
                                 <br />
                                 <br />
+                                    </div>
                             </asp:Panel>
                         </td>
                     </tr>
@@ -169,17 +194,9 @@
             </td>
             <td>&nbsp;</td>
         </tr>
-        <tr>
-            <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style6">
-                <address class="auto-style1">Contact: Karna Thapa<br/>
-                         Address: Euless, TX <br/>
-                         Email: kisanthapamagar@gmail.com
-                </address><br />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
+       
     </table>
     </form>
+        </div>
 </body>
 </html>

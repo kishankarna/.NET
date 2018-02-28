@@ -3,9 +3,15 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" >
 <head runat="server">
     <title></title>
+    <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../scripts/jquery-3.3.1.js"></script>
+
     <style type="text/css">
         .auto-style1 {
             width: 100%;
@@ -13,6 +19,7 @@
     </style>
 </head>
 <body>
+    <div class="container">
     <p>
         <br />
     </p>
@@ -28,5 +35,6 @@
         <div>
             If you need further assistant, please contact our helpdesk at helpdesk@karnaCompany.com</div>
     </form>
+        </div>
 </body>
 </html>

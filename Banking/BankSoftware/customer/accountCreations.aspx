@@ -2,9 +2,17 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en" >
 <head runat="server">
     <title></title>
+    <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../scripts/jquery-3.3.1.js"></script>
+
+ 
     <style type="text/css">
 
 
@@ -27,9 +35,37 @@
         .auto-style7 {
             height: 26px;
         }
-        </style>
+          .customNav {
+        background-color:dodgerblue;
+        }
+        .customUl {
+        color:black;
+        }
+        .nav.navbar-nav.navbar-right li a {
+            color: blue;
+        }
+        .nav.navbar-nav li a {
+            color: blue;
+        }  
+    </style>
 </head>
 <body>
+      <nav class="navbar navbar-inverse customNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">United Local Bank</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Home.aspx">Home</a></li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+               
+                <li><a href="../logout.aspx"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
     <form id="form2" runat="server">
         <div class="auto-style2">
         <div>
@@ -39,8 +75,8 @@
     <table class="auto-style4">
         <tr>
             <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style6">
-                <h2 class="auto-style1">United Local Bank</h2></td>
+           <%-- <td class="auto-style6">
+                <h2 class="auto-style1">United Local Bank</h2></td>--%>
             <td>&nbsp;<asp:Label ID="lblUsr" runat="server"></asp:Label>
             </td>
         </tr>
@@ -53,18 +89,23 @@
             </td>
             <td class="auto-style6">
                 <br />
-                <asp:Wizard ID="Wizard1" runat="server" OnFinishButtonClick="Wizard1_FinishButtonClick" ActiveStepIndex="0" CancelDestinationPageUrl="~/customer/bankApplication.aspx" DisplayCancelButton="True" Height="151px" OnCancelButtonClick="Wizard1_CancelButtonClick" Width="532px" OnNextButtonClick="Wizard1_NextButtonClick">
+                <asp:Wizard ID="Wizard1" runat="server" OnFinishButtonClick="Wizard1_FinishButtonClick" ActiveStepIndex="0" CancelDestinationPageUrl="~/customer/bankApplication.aspx" DisplayCancelButton="True" Height="151px" OnCancelButtonClick="Wizard1_CancelButtonClick" Width="532px" OnNextButtonClick="Wizard1_NextButtonClick" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
+                    <HeaderStyle BackColor="#284E98" BorderColor="#EFF3FB" BorderStyle="Solid" BorderWidth="2px" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
+                    <NavigationButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
+                    <SideBarButtonStyle BackColor="#507CD1" Font-Names="Verdana" ForeColor="White" />
+                    <SideBarStyle BackColor="#507CD1" Font-Size="0.9em" VerticalAlign="Top" />
                     <StepNavigationTemplate>
                         <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious" Text="Previous" />
                         <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Next" />
                     </StepNavigationTemplate>
+                    <StepStyle Font-Size="0.8em" ForeColor="#333333" />
                     <WizardSteps>
                         <asp:WizardStep runat="server" title="Account Information">
                             <table class="auto-style4">
                                 <tr>
                                     <td>A/C No: </td>
                                     <td>
-                                        <asp:TextBox ID="txtAccn" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtAccn" runat="server" class="form-control"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAccn" ErrorMessage="Required Account Number" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -73,7 +114,7 @@
                                 <tr>
                                     <td class="auto-style7">Opening Balance : </td>
                                     <td class="auto-style7">
-                                        <asp:TextBox ID="txtBalance" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtBalance" runat="server" class="form-control"></asp:TextBox>
                                     </td>
                                     <td class="auto-style7">
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtBalance" ErrorMessage="Required Opening Balance" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -82,7 +123,7 @@
                                 <tr>
                                     <td>Preparer :</td>
                                     <td>
-                                        <asp:DropDownList ID="DDLPreparer" runat="server">
+                                        <asp:DropDownList ID="DDLPreparer" runat="server" class="form-control">
                                             <asp:ListItem Value="-1">Select</asp:ListItem>
                                             <asp:ListItem>Bank Staff</asp:ListItem>
                                             <asp:ListItem>Self/Online</asp:ListItem>
@@ -95,7 +136,7 @@
                                 <tr>
                                     <td>Account Type :</td>
                                     <td>
-                                        <asp:DropDownList ID="DDLAccnType" runat="server">
+                                        <asp:DropDownList ID="DDLAccnType" runat="server" class="form-control">
                                             <asp:ListItem Value="-1">Select</asp:ListItem>
                                             <asp:ListItem>Checking</asp:ListItem>
                                             <asp:ListItem>Saving</asp:ListItem>
@@ -183,12 +224,9 @@
             </td>
             <td>&nbsp;</td>
         </tr>
-        <tr>
-            <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style6">
-                <address class="auto-style1">Contact: Karna Thapa
+        
     </table>
     </form>
-    
+</div>
 </body>
 </html>

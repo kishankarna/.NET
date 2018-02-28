@@ -72,7 +72,7 @@ namespace BankSoftware.register
 
         protected void Wizard1_CancelButtonClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/login.aspx");
+            Response.Redirect("~/bank.html");
         }
 
         protected void txtID_TextChanged(object sender, EventArgs e)

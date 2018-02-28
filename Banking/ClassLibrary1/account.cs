@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace DALlayer
@@ -162,7 +162,28 @@ namespace DALlayer
                 }
                 return flag;
             }
-            catch (System.NullReferenceException ex) { return flag; }
+            catch (System.NullReferenceException ex) { Console.WriteLine(ex.Message); return flag; }
+        }
+
+        public static DataTable StatementsByMonth(string Month, string accountIDType)
+        {
+            DataTable data = new DataTable();
+            string cs = "server=NIKSON-PC\\SQLEXPRESS;user id=sa; password=1k2k3k4k5k6k;database=bank ";
+
+
+            using (SqlConnection cn = new SqlConnection(cs))
+            { 
+                cn.Open();
+                string query = "select convert(varchar,cast(tranDate as Date),6) as Date,tranType as [Transaction], tranPlace as Description, " +
+                                   "Amount='$' +convert(varchar,tranAmount,1), Balance='$' +convert(varchar,Balance,1) from [transaction] where accountID=@id and Month(tranDate)=@Month";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@id",accountIDType );
+                cmd.Parameters.AddWithValue("@Month", Month);
+                data.Load(cmd.ExecuteReader());
+                return data;
+            }
+            
+
         }
 
     }
