@@ -161,7 +161,7 @@ namespace BankSoftware.bank
 
                         pdfTable.AddCell(pdfCell.Phrase.Content.ToString());
                     }
-                    //}
+                    
                 }
 
                 // Create the PDF document specifying page size and margins
