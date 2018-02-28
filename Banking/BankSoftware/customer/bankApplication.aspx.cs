@@ -169,7 +169,7 @@ namespace BankSoftware.bank
 
                 PdfWriter.GetInstance(pdfDocument, Response.OutputStream);
 
-                //title
+                //title for pdf
                 var titleFont = FontFactory.GetFont("Arial", 14, Font.BOLDITALIC);
                 var emailFont = FontFactory.GetFont("Arial", 13, Font.ITALIC);
                 // Create Header in PDF file"
